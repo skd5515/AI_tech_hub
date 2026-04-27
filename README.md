@@ -24,7 +24,7 @@ A comprehensive and visually immersive reference guide to the entire Artificial 
  Visual representation of AI pipeline architecture
  Categorized tech stack for better understanding
 
- 
+ Link: https://aiskd.netlify.app/
 📷 Use Cases
  Learning AI/ML ecosystem
  Quick reference for developers & data professionals
