@@ -1,0 +1,3057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI/ML Technology Universe — Complete Reference Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #050508;
+  --bg2: #0b0b12;
+  --bg3: #10101a;
+  --bg4: #15151f;
+  --panel: #1a1a28;
+  --border: rgba(100,100,180,0.18);
+  --neon: #4af;
+  --neon2: #a78bfa;
+  --neon3: #34d399;
+  --neon4: #fb923c;
+  --neon5: #f472b6;
+  --neon6: #facc15;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --glow: 0 0 20px rgba(68,170,255,0.25);
+  --glow2: 0 0 20px rgba(167,139,250,0.25);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Syne',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--neon2);border-radius:3px;}
+
+/* GRID BACKGROUND */
+body::before{
+  content:'';
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background-image:
+    linear-gradient(rgba(68,170,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(68,170,255,0.03) 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;z-index:0;
+}
+
+/* SIDEBAR NAV */
+#sidebar{
+  position:fixed;left:0;top:0;width:220px;height:100vh;
+  background:rgba(5,5,8,0.95);
+  border-right:1px solid var(--border);
+  backdrop-filter:blur(20px);
+  z-index:1000;
+  overflow-y:auto;
+  padding:20px 0;
+  transition:transform 0.3s;
+}
+#sidebar .logo{
+  padding:10px 20px 20px;
+  font-size:12px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--neon);
+  border-bottom:1px solid var(--border);
+  margin-bottom:10px;
+}
+#sidebar a{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 20px;
+  font-size:12px;font-weight:600;
+  color:var(--text3);text-decoration:none;
+  letter-spacing:0.5px;
+  transition:all 0.2s;border-left:2px solid transparent;
+}
+#sidebar a:hover,#sidebar a.active{
+  color:var(--neon);
+  border-left-color:var(--neon);
+  background:rgba(68,170,255,0.05);
+}
+#sidebar .nav-section{
+  padding:12px 20px 4px;
+  font-size:10px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--text3);
+}
+#sidebar .dot{
+  width:6px;height:6px;border-radius:50%;flex-shrink:0;
+}
+
+/* MAIN */
+main{
+  margin-left:220px;
+  position:relative;z-index:1;
+}
+
+/* HERO */
+#hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 60px;
+  position:relative;
+  overflow:hidden;
+}
+#hero::before{
+  content:'';
+  position:absolute;top:-200px;right:-200px;
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(68,170,255,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+#hero::after{
+  content:'';
+  position:absolute;bottom:-200px;left:10%;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(167,139,250,0.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(68,170,255,0.1);
+  border:1px solid rgba(68,170,255,0.3);
+  border-radius:4px;padding:6px 14px;
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:var(--neon);
+  letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:28px;
+  animation:fadeIn 0.8s ease;
+}
+.hero-tag::before{content:'▶';font-size:8px;}
+h1.hero-title{
+  font-size:clamp(40px,5vw,72px);
+  font-weight:800;line-height:1.05;
+  letter-spacing:-2px;
+  animation:slideUp 0.8s ease 0.1s both;
+}
+h1.hero-title span{
+  background:linear-gradient(135deg,var(--neon),var(--neon2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-sub{
+  max-width:560px;
+  font-size:17px;color:var(--text2);
+  margin:20px 0 40px;
+  animation:slideUp 0.8s ease 0.2s both;
+}
+.hero-stats{
+  display:flex;gap:40px;flex-wrap:wrap;
+  animation:slideUp 0.8s ease 0.3s both;
+}
+.stat{text-align:left;}
+.stat-num{
+  font-size:36px;font-weight:800;
+  background:linear-gradient(135deg,var(--neon),var(--neon3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.stat-label{font-size:12px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;}
+
+/* SECTION STYLES */
+section{
+  padding:80px 60px;
+  border-bottom:1px solid var(--border);
+}
+.section-tag{
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--neon);opacity:0.7;
+  margin-bottom:8px;
+}
+h2.sec-title{
+  font-size:clamp(28px,3vw,42px);
+  font-weight:800;letter-spacing:-1px;
+  margin-bottom:12px;
+}
+.sec-desc{
+  color:var(--text2);font-size:15px;
+  max-width:660px;margin-bottom:48px;
+}
+
+/* CARDS GRID */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:20px;
+}
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:24px;
+  position:relative;
+  overflow:hidden;
+  transition:all 0.3s;
+  cursor:pointer;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent,var(--neon)),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:var(--accent,var(--neon));
+  box-shadow:0 8px 40px rgba(0,0,0,0.4),0 0 0 1px var(--accent,var(--neon)) inset;
+}
+.card:hover::before{opacity:1;}
+.card-icon{
+  font-size:28px;margin-bottom:12px;
+}
+.card-title{
+  font-size:16px;font-weight:700;margin-bottom:8px;
+}
+.card-desc{
+  font-size:13px;color:var(--text2);line-height:1.6;
+}
+.card-tags{
+  display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;
+}
+.tag{
+  font-family:'Fira Code',monospace;
+  font-size:10px;
+  padding:3px 8px;
+  border-radius:3px;
+  background:rgba(68,170,255,0.08);
+  border:1px solid rgba(68,170,255,0.2);
+  color:var(--neon);
+}
+.tag.purple{background:rgba(167,139,250,0.08);border-color:rgba(167,139,250,0.2);color:var(--neon2);}
+.tag.green{background:rgba(52,211,153,0.08);border-color:rgba(52,211,153,0.2);color:var(--neon3);}
+.tag.orange{background:rgba(251,146,60,0.08);border-color:rgba(251,146,60,0.2);color:var(--neon4);}
+.tag.pink{background:rgba(244,114,182,0.08);border-color:rgba(244,114,182,0.2);color:var(--neon5);}
+.tag.yellow{background:rgba(250,204,21,0.08);border-color:rgba(250,204,21,0.2);color:var(--neon6);}
+
+/* EXPANDABLE CARD */
+.card-detail{
+  display:none;margin-top:16px;padding-top:16px;
+  border-top:1px solid var(--border);
+  font-size:13px;color:var(--text2);
+}
+.card-detail.open{display:block;}
+.card-detail h4{color:var(--text);font-size:13px;margin-bottom:6px;margin-top:12px;}
+.card-detail h4:first-child{margin-top:0;}
+.card-detail code{
+  font-family:'Fira Code',monospace;
+  font-size:11px;
+  background:rgba(0,0,0,0.4);
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:8px 12px;
+  display:block;
+  margin-top:6px;
+  color:var(--neon3);
+  white-space:pre;
+  overflow-x:auto;
+}
+.expand-btn{
+  background:none;border:none;cursor:pointer;
+  color:var(--neon);font-size:11px;
+  font-family:'Space Mono',monospace;
+  margin-top:12px;
+  padding:0;letter-spacing:1px;
+  display:flex;align-items:center;gap:6px;
+}
+.expand-btn::before{content:'[+]';font-weight:700;}
+.expand-btn.open::before{content:'[−]';}
+
+/* PIPELINE DIAGRAM */
+.pipeline{
+  display:flex;align-items:center;flex-wrap:wrap;gap:0;
+  margin:40px 0;padding:32px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow-x:auto;
+}
+.pipe-step{
+  display:flex;flex-direction:column;align-items:center;
+  min-width:100px;
+}
+.pipe-icon{
+  width:60px;height:60px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+  border:1px solid var(--border);
+  background:var(--bg3);
+  transition:all 0.3s;
+  position:relative;
+}
+.pipe-icon::after{
+  content:'';position:absolute;inset:0;
+  border-radius:12px;
+  opacity:0;transition:opacity 0.3s;
+  background:var(--pg,linear-gradient(135deg,rgba(68,170,255,0.2),rgba(167,139,250,0.2)));
+}
+.pipe-step:hover .pipe-icon{border-color:var(--neon);box-shadow:var(--glow);}
+.pipe-step:hover .pipe-icon::after{opacity:1;}
+.pipe-label{font-size:11px;margin-top:8px;text-align:center;color:var(--text2);font-weight:600;}
+.pipe-arrow{
+  font-size:18px;color:var(--text3);
+  padding:0 8px;flex-shrink:0;
+  margin-top:-20px;
+}
+
+/* CODE BLOCK */
+.code-block{
+  background:#0d0d14;
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  margin:20px 0;
+}
+.code-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;
+  background:rgba(255,255,255,0.03);
+  border-bottom:1px solid var(--border);
+}
+.code-lang{
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:var(--neon);letter-spacing:1px;
+}
+.code-dots{display:flex;gap:6px;}
+.code-dot{width:10px;height:10px;border-radius:50%;}
+.code-body{
+  padding:20px;
+  font-family:'Fira Code',monospace;
+  font-size:13px;
+  line-height:1.7;
+  color:#c9d1d9;
+  overflow-x:auto;
+  white-space:pre;
+}
+.kw{color:#ff7b72;}
+.fn{color:#d2a8ff;}
+.str{color:#a5d6ff;}
+.cm{color:#6e7681;font-style:italic;}
+.num{color:#79c0ff;}
+.cls{color:#ffa657;}
+
+/* COMPARISON TABLE */
+.comp-table{
+  width:100%;border-collapse:collapse;
+  font-size:13px;margin:24px 0;
+}
+.comp-table th{
+  background:rgba(68,170,255,0.08);
+  padding:12px 16px;text-align:left;
+  font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  color:var(--neon);border:1px solid var(--border);
+  font-family:'Space Mono',monospace;
+}
+.comp-table td{
+  padding:12px 16px;border:1px solid var(--border);
+  color:var(--text2);vertical-align:top;
+}
+.comp-table tr:hover td{background:rgba(68,170,255,0.03);}
+.badge{
+  display:inline-block;padding:2px 8px;border-radius:3px;
+  font-size:10px;font-weight:700;letter-spacing:1px;
+}
+.badge-green{background:rgba(52,211,153,0.15);color:var(--neon3);}
+.badge-yellow{background:rgba(250,204,21,0.15);color:var(--neon6);}
+.badge-red{background:rgba(248,113,113,0.15);color:#f87171;}
+.badge-blue{background:rgba(68,170,255,0.15);color:var(--neon);}
+
+/* INFO BOX */
+.info-box{
+  border-radius:10px;padding:20px 24px;margin:20px 0;
+  border-left:3px solid var(--neon);
+  background:rgba(68,170,255,0.06);
+}
+.info-box.purple{border-color:var(--neon2);background:rgba(167,139,250,0.06);}
+.info-box.green{border-color:var(--neon3);background:rgba(52,211,153,0.06);}
+.info-box.orange{border-color:var(--neon4);background:rgba(251,146,60,0.06);}
+.info-box h4{font-size:13px;margin-bottom:8px;letter-spacing:1px;}
+.info-box p{font-size:13px;color:var(--text2);}
+
+/* ROADMAP */
+.roadmap{position:relative;padding-left:40px;}
+.roadmap::before{
+  content:'';position:absolute;left:15px;top:0;bottom:0;
+  width:2px;background:linear-gradient(to bottom,var(--neon),var(--neon2),var(--neon3));
+}
+.road-item{
+  position:relative;margin-bottom:32px;
+}
+.road-item::before{
+  content:'';
+  position:absolute;left:-31px;top:8px;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--neon);
+  box-shadow:0 0 12px var(--neon);
+}
+.road-week{
+  font-family:'Space Mono',monospace;
+  font-size:10px;color:var(--neon);letter-spacing:2px;
+  margin-bottom:4px;
+}
+.road-title{font-size:16px;font-weight:700;margin-bottom:6px;}
+.road-items{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;
+}
+.road-pill{
+  font-size:12px;padding:4px 12px;border-radius:20px;
+  background:var(--panel);border:1px solid var(--border);
+  color:var(--text2);
+}
+
+/* TABS */
+.tabs{display:flex;gap:2px;margin-bottom:24px;flex-wrap:wrap;}
+.tab-btn{
+  padding:8px 20px;font-size:12px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  border:1px solid var(--border);
+  background:transparent;color:var(--text3);
+  cursor:pointer;transition:all 0.2s;border-radius:6px;
+  font-family:'Space Mono',monospace;
+}
+.tab-btn:hover{color:var(--text);border-color:var(--neon);}
+.tab-btn.active{background:var(--neon);color:var(--bg);border-color:var(--neon);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* ARCHITECTURE SVG */
+.arch-container{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:16px;padding:32px;margin:32px 0;
+  overflow-x:auto;
+}
+.arch-container h3{
+  font-size:14px;font-weight:700;
+  margin-bottom:24px;letter-spacing:1px;
+  color:var(--text2);text-transform:uppercase;
+}
+
+/* LEVEL BADGES */
+.level{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;
+  padding:4px 10px;border-radius:4px;
+  font-family:'Space Mono',monospace;
+  margin-left:10px;
+}
+.level-beginner{background:rgba(52,211,153,0.15);color:var(--neon3);}
+.level-intermediate{background:rgba(250,204,21,0.15);color:var(--neon6);}
+.level-advanced{background:rgba(248,113,113,0.15);color:#f87171;}
+
+/* FLOATING BACK TO TOP */
+#btt{
+  position:fixed;bottom:30px;right:30px;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--neon2);color:var(--bg);
+  border:none;cursor:pointer;font-size:18px;
+  display:flex;align-items:center;justify-content:center;
+  z-index:999;box-shadow:0 4px 20px rgba(167,139,250,0.4);
+  transition:all 0.2s;
+}
+#btt:hover{transform:scale(1.1);}
+
+/* ANIMATIONS */
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes glow{0%,100%{box-shadow:0 0 10px rgba(68,170,255,0.3);}50%{box-shadow:0 0 30px rgba(68,170,255,0.6);}}
+
+.animate-in{
+  animation:slideUp 0.6s ease both;
+}
+
+/* MOBILE TOGGLE */
+#menu-toggle{
+  display:none;position:fixed;top:15px;left:15px;z-index:1001;
+  background:var(--neon2);border:none;border-radius:6px;
+  color:var(--bg);padding:8px 12px;font-size:18px;cursor:pointer;
+}
+
+/* PROGRESS BAR */
+#progress{
+  position:fixed;top:0;left:0;height:2px;
+  background:linear-gradient(90deg,var(--neon),var(--neon2),var(--neon3));
+  z-index:9999;transition:width 0.1s;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  #sidebar{transform:translateX(-100%);}
+  #sidebar.open{transform:translateX(0);}
+  main{margin-left:0;}
+  #menu-toggle{display:block;}
+  section{padding:60px 24px;}
+  #hero{padding:80px 24px;}
+  .cards{grid-template-columns:1fr;}
+}
+
+/* SPECIAL HIGHLIGHT */
+.highlight-box{
+  background:linear-gradient(135deg,rgba(68,170,255,0.08),rgba(167,139,250,0.08));
+  border:1px solid rgba(167,139,250,0.2);
+  border-radius:16px;padding:32px;margin:32px 0;
+}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+@media(max-width:700px){.two-col{grid-template-columns:1fr;}}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media(max-width:900px){.three-col{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.three-col{grid-template-columns:1fr;}}
+
+/* METRIC CARDS */
+.metric{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:10px;padding:20px;text-align:center;
+}
+.metric-val{font-size:28px;font-weight:800;color:var(--neon);}
+.metric-label{font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+
+/* SEARCH BAR */
+#search-wrap{
+  padding:16px 20px;
+  border-bottom:1px solid var(--border);
+}
+#search{
+  width:100%;padding:8px 12px;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:6px;
+  color:var(--text);font-size:12px;
+  font-family:'Space Mono',monospace;
+  outline:none;
+  transition:border-color 0.2s;
+}
+#search:focus{border-color:var(--neon);}
+#search::placeholder{color:var(--text3);}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div class="logo">⬡ AI·ML·UNIVERSE</div>
+  <div id="search-wrap">
+    <input id="search" placeholder="Search topics..." oninput="filterNav(this.value)">
+  </div>
+  <div class="nav-section">Foundation</div>
+  <a href="#hero"><span class="dot" style="background:#4af"></span>Overview</a>
+  <a href="#pipeline"><span class="dot" style="background:#4af"></span>Full Pipeline</a>
+  <a href="#languages"><span class="dot" style="background:#34d399"></span>Languages</a>
+  <div class="nav-section">Core ML</div>
+  <a href="#ml-frameworks"><span class="dot" style="background:#a78bfa"></span>ML Frameworks</a>
+  <a href="#data-tools"><span class="dot" style="background:#fb923c"></span>Data Processing</a>
+  <a href="#databases"><span class="dot" style="background:#f472b6"></span>Databases</a>
+  <div class="nav-section">GenAI Stack</div>
+  <a href="#genai"><span class="dot" style="background:#4af"></span>LLM Frameworks</a>
+  <a href="#model-providers"><span class="dot" style="background:#facc15"></span>Model Providers</a>
+  <a href="#rag"><span class="dot" style="background:#34d399"></span>RAG Systems</a>
+  <a href="#agents"><span class="dot" style="background:#a78bfa"></span>AI Agents</a>
+  <div class="nav-section">Deployment</div>
+  <a href="#mlops"><span class="dot" style="background:#fb923c"></span>MLOps</a>
+  <a href="#cloud"><span class="dot" style="background:#4af"></span>Cloud Platforms</a>
+  <a href="#hardware"><span class="dot" style="background:#f472b6"></span>Hardware & GPUs</a>
+  <div class="nav-section">Applications</div>
+  <a href="#visualization"><span class="dot" style="background:#facc15"></span>Visualization</a>
+  <a href="#frontend"><span class="dot" style="background:#34d399"></span>Frontend / APIs</a>
+  <a href="#advanced"><span class="dot" style="background:#fb923c"></span>Advanced Topics</a>
+  <a href="#roadmap"><span class="dot" style="background:#a78bfa"></span>Learning Roadmap</a>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">The Complete Reference · 2025 Edition</div>
+  <h1 class="hero-title">The AI/ML<br><span>Technology Universe</span></h1>
+  <p class="hero-sub">Every tool, framework, library, and platform you need — from raw data to production-grade AI systems. Basics to advanced, all in one place.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">60+</div><div class="stat-label">Technologies</div></div>
+    <div class="stat"><div class="stat-num">12</div><div class="stat-label">Categories</div></div>
+    <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Possibilities</div></div>
+  </div>
+</section>
+
+<!-- FULL PIPELINE -->
+<section id="pipeline">
+  <div class="section-tag">§ 01 · Architecture</div>
+  <h2 class="sec-title">The Complete AI Pipeline</h2>
+  <p class="sec-desc">Every AI/ML project follows a fundamental flow — from raw data to insights. Here's the full end-to-end architecture you need to understand.</p>
+  
+  <div class="arch-container">
+    <h3>End-to-End AI System Architecture</h3>
+    <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:700px;">
+      <defs>
+        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#4af;stop-opacity:0.8"/>
+          <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.8"/>
+        </linearGradient>
+        <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#34d399;stop-opacity:0.8"/>
+          <stop offset="100%" style="stop-color:#4af;stop-opacity:0.8"/>
+        </linearGradient>
+        <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#fb923c;stop-opacity:0.8"/>
+          <stop offset="100%" style="stop-color:#facc15;stop-opacity:0.8"/>
+        </linearGradient>
+        <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.8"/>
+          <stop offset="100%" style="stop-color:#f472b6;stop-opacity:0.8"/>
+        </linearGradient>
+        <filter id="glow-filter">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="rgba(100,100,180,0.6)"/>
+        </marker>
+      </defs>
+      
+      <!-- BACKGROUND PANELS -->
+      <rect x="10" y="10" width="870" height="300" rx="12" fill="rgba(16,16,26,0.8)" stroke="rgba(100,100,180,0.2)" stroke-width="1"/>
+      
+      <!-- ROW 1: DATA PIPELINE -->
+      <!-- Data Sources -->
+      <rect x="30" y="40" width="110" height="70" rx="8" fill="rgba(68,170,255,0.1)" stroke="#4af" stroke-width="1.5"/>
+      <text x="85" y="68" text-anchor="middle" fill="#4af" font-size="18">🗄️</text>
+      <text x="85" y="86" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Raw Data</text>
+      <text x="85" y="100" text-anchor="middle" fill="#94a3b8" font-size="9">CSV/JSON/DB</text>
+      
+      <!-- Arrow -->
+      <line x1="142" y1="75" x2="168" y2="75" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- Data Processing -->
+      <rect x="170" y="40" width="110" height="70" rx="8" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="225" y="68" text-anchor="middle" fill="#34d399" font-size="18">⚙️</text>
+      <text x="225" y="86" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Processing</text>
+      <text x="225" y="100" text-anchor="middle" fill="#94a3b8" font-size="9">Pandas/Spark</text>
+      
+      <line x1="282" y1="75" x2="308" y2="75" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- Feature Engineering -->
+      <rect x="310" y="40" width="110" height="70" rx="8" fill="rgba(251,146,60,0.1)" stroke="#fb923c" stroke-width="1.5"/>
+      <text x="365" y="68" text-anchor="middle" fill="#fb923c" font-size="18">🔧</text>
+      <text x="365" y="86" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Features</text>
+      <text x="365" y="100" text-anchor="middle" fill="#94a3b8" font-size="9">NumPy/sklearn</text>
+      
+      <line x1="422" y1="75" x2="448" y2="75" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- Vector DB -->
+      <rect x="450" y="40" width="110" height="70" rx="8" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="505" y="68" text-anchor="middle" fill="#a78bfa" font-size="18">🧮</text>
+      <text x="505" y="86" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Embeddings</text>
+      <text x="505" y="100" text-anchor="middle" fill="#94a3b8" font-size="9">Pinecone/FAISS</text>
+      
+      <line x1="562" y1="75" x2="588" y2="75" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- Model Training -->
+      <rect x="590" y="40" width="110" height="70" rx="8" fill="rgba(244,114,182,0.1)" stroke="#f472b6" stroke-width="1.5"/>
+      <text x="645" y="68" text-anchor="middle" fill="#f472b6" font-size="18">🧠</text>
+      <text x="645" y="86" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Training</text>
+      <text x="645" y="100" text-anchor="middle" fill="#94a3b8" font-size="9">PyTorch/TF</text>
+      
+      <line x1="702" y1="75" x2="728" y2="75" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- Evaluation -->
+      <rect x="730" y="40" width="110" height="70" rx="8" fill="rgba(250,204,21,0.1)" stroke="#facc15" stroke-width="1.5"/>
+      <text x="785" y="68" text-anchor="middle" fill="#facc15" font-size="18">📊</text>
+      <text x="785" y="86" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Evaluation</text>
+      <text x="785" y="100" text-anchor="middle" fill="#94a3b8" font-size="9">MLflow/W&B</text>
+      
+      <!-- ROW 2: DEPLOYMENT PIPELINE -->
+      <text x="450" y="140" text-anchor="middle" fill="rgba(100,100,180,0.4)" font-size="10" font-family="Space Mono">── DEPLOYMENT LAYER ──────────────────────────────────────</text>
+      
+      <!-- API -->
+      <rect x="30" y="160" width="110" height="70" rx="8" fill="rgba(68,170,255,0.1)" stroke="#4af" stroke-width="1.5"/>
+      <text x="85" y="188" text-anchor="middle" fill="#4af" font-size="18">🔌</text>
+      <text x="85" y="206" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">API Layer</text>
+      <text x="85" y="220" text-anchor="middle" fill="#94a3b8" font-size="9">FastAPI/Flask</text>
+      
+      <line x1="142" y1="195" x2="168" y2="195" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- Container -->
+      <rect x="170" y="160" width="110" height="70" rx="8" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="225" y="188" text-anchor="middle" fill="#34d399" font-size="18">🐳</text>
+      <text x="225" y="206" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Container</text>
+      <text x="225" y="220" text-anchor="middle" fill="#94a3b8" font-size="9">Docker/K8s</text>
+      
+      <line x1="282" y1="195" x2="308" y2="195" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- Cloud Deploy -->
+      <rect x="310" y="160" width="110" height="70" rx="8" fill="rgba(251,146,60,0.1)" stroke="#fb923c" stroke-width="1.5"/>
+      <text x="365" y="188" text-anchor="middle" fill="#fb923c" font-size="18">☁️</text>
+      <text x="365" y="206" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Cloud Deploy</text>
+      <text x="365" y="220" text-anchor="middle" fill="#94a3b8" font-size="9">AWS/GCP/Azure</text>
+      
+      <line x1="422" y1="195" x2="448" y2="195" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- LLM API -->
+      <rect x="450" y="160" width="110" height="70" rx="8" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="505" y="188" text-anchor="middle" fill="#a78bfa" font-size="18">🤖</text>
+      <text x="505" y="206" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">LLM / RAG</text>
+      <text x="505" y="220" text-anchor="middle" fill="#94a3b8" font-size="9">LangChain</text>
+      
+      <line x1="562" y1="195" x2="588" y2="195" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- Frontend -->
+      <rect x="590" y="160" width="110" height="70" rx="8" fill="rgba(244,114,182,0.1)" stroke="#f472b6" stroke-width="1.5"/>
+      <text x="645" y="188" text-anchor="middle" fill="#f472b6" font-size="18">🖥️</text>
+      <text x="645" y="206" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Frontend UI</text>
+      <text x="645" y="220" text-anchor="middle" fill="#94a3b8" font-size="9">React/Streamlit</text>
+      
+      <line x1="702" y1="195" x2="728" y2="195" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- End User -->
+      <rect x="730" y="160" width="110" height="70" rx="8" fill="rgba(250,204,21,0.1)" stroke="#facc15" stroke-width="1.5"/>
+      <text x="785" y="188" text-anchor="middle" fill="#facc15" font-size="18">👤</text>
+      <text x="785" y="206" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">End User</text>
+      <text x="785" y="220" text-anchor="middle" fill="#94a3b8" font-size="9">Insights/Actions</text>
+      
+      <!-- BOTTOM LABELS -->
+      <text x="450" y="262" text-anchor="middle" fill="rgba(100,100,180,0.4)" font-size="10" font-family="Space Mono">── MONITORING: MLflow · Prometheus · Grafana · DataDog ──────────────</text>
+      
+      <!-- Feedback Loop Arrow -->
+      <path d="M 785 232 Q 785 290 450 290 Q 115 290 85 232" fill="none" stroke="rgba(250,204,21,0.3)" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+      <text x="450" y="284" text-anchor="middle" fill="rgba(250,204,21,0.5)" font-size="9" font-family="Space Mono">← continuous feedback & retraining loop →</text>
+    </svg>
+  </div>
+
+  <div class="pipeline">
+    <div class="pipe-step">
+      <div class="pipe-icon" style="--pg:linear-gradient(135deg,rgba(68,170,255,0.3),rgba(52,211,153,0.3))">📦</div>
+      <div class="pipe-label">Data<br>Collection</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="pipe-icon" style="--pg:linear-gradient(135deg,rgba(52,211,153,0.3),rgba(251,146,60,0.3))">🧹</div>
+      <div class="pipe-label">Clean &<br>Process</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="pipe-icon" style="--pg:linear-gradient(135deg,rgba(251,146,60,0.3),rgba(244,114,182,0.3))">🔢</div>
+      <div class="pipe-label">Feature<br>Engineer</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="pipe-icon" style="--pg:linear-gradient(135deg,rgba(167,139,250,0.3),rgba(68,170,255,0.3))">🧠</div>
+      <div class="pipe-label">Train<br>Model</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="pipe-icon" style="--pg:linear-gradient(135deg,rgba(250,204,21,0.3),rgba(52,211,153,0.3))">📏</div>
+      <div class="pipe-label">Evaluate &<br>Tune</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="pipe-icon" style="--pg:linear-gradient(135deg,rgba(68,170,255,0.3),rgba(244,114,182,0.3))">🚀</div>
+      <div class="pipe-label">Deploy &<br>Serve</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step">
+      <div class="pipe-icon" style="--pg:linear-gradient(135deg,rgba(52,211,153,0.3),rgba(167,139,250,0.3))">📊</div>
+      <div class="pipe-label">Monitor &<br>Iterate</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMING LANGUAGES -->
+<section id="languages">
+  <div class="section-tag">§ 02 · Foundation</div>
+  <h2 class="sec-title">Programming Languages <span class="level level-beginner">Beginner</span></h2>
+  <p class="sec-desc">The languages that power AI development. Python dominates, but each has a specific role in the ecosystem.</p>
+
+  <div class="cards">
+    <div class="card" style="--accent:#3b82f6">
+      <div class="card-icon">🐍</div>
+      <div class="card-title">Python</div>
+      <div class="card-desc">The undisputed king of AI/ML. Massive ecosystem, simple syntax, and support from every major framework.</div>
+      <div class="card-tags">
+        <span class="tag">#1 for AI</span>
+        <span class="tag green">Must Learn</span>
+        <span class="tag orange">Versatile</span>
+      </div>
+      <button class="expand-btn" onclick="toggleCard(this)">Explore Python</button>
+      <div class="card-detail">
+        <h4>Why Python for AI?</h4>
+        <p>Python's readable syntax, GIL-free extensions (via C/C++), and the NumPy/SciPy scientific stack make it the default choice. Libraries like PyTorch and TensorFlow expose Python APIs over highly optimized C++/CUDA backends.</p>
+        <h4>Key Libraries</h4>
+        <p>NumPy, Pandas, Matplotlib, scikit-learn, TensorFlow, PyTorch, Hugging Face, LangChain, FastAPI</p>
+        <h4>Quick Start</h4>
+        <code><span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cm"># Load data</span>
+df = pd.<span class="fn">read_csv</span>(<span class="str">'data.csv'</span>)
+
+<span class="cm"># Basic ML pipeline</span>
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+
+X_train, X_test, y_train, y_test = <span class="fn">train_test_split</span>(X, y)
+model = <span class="fn">LinearRegression</span>()
+model.<span class="fn">fit</span>(X_train, y_train)</code>
+        <h4>Use Cases</h4>
+        <p>Model training, data analysis, scripting, web APIs, automation, research</p>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#22c55e">
+      <div class="card-icon">📊</div>
+      <div class="card-title">R</div>
+      <div class="card-desc">Purpose-built for statistics and data analysis. Dominant in academia, bioinformatics, and research.</div>
+      <div class="card-tags">
+        <span class="tag green">Statistics</span>
+        <span class="tag green">Research</span>
+        <span class="tag">Visualization</span>
+      </div>
+      <button class="expand-btn" onclick="toggleCard(this)">Explore R</button>
+      <div class="card-detail">
+        <h4>When to use R</h4>
+        <p>Statistical analysis, hypothesis testing, data visualization with ggplot2, bioinformatics, financial analysis, and academic research.</p>
+        <h4>Key Packages</h4>
+        <p>tidyverse, ggplot2, dplyr, caret, randomForest, Shiny (web apps), lubridate</p>
+        <h4>Quick Start</h4>
+        <code><span class="cm"># Load and visualize</span>
+<span class="fn">library</span>(tidyverse)
+
+df &lt;- <span class="fn">read_csv</span>(<span class="str">"data.csv"</span>)
+df |&gt; <span class="fn">ggplot</span>(<span class="fn">aes</span>(x=age, y=income)) +
+  <span class="fn">geom_point</span>() +
+  <span class="fn">geom_smooth</span>(method=<span class="str">"lm"</span>)</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#f59e0b">
+      <div class="card-icon">☕</div>
+      <div class="card-title">JavaScript / TypeScript</div>
+      <div class="card-desc">Run AI in the browser and build production frontends for AI applications. TensorFlow.js enables on-device ML.</div>
+      <div class="card-tags">
+        <span class="tag yellow">Frontend</span>
+        <span class="tag yellow">Browser AI</span>
+        <span class="tag">Node.js</span>
+      </div>
+      <button class="expand-btn" onclick="toggleCard(this)">Explore JS</button>
+      <div class="card-detail">
+        <h4>Use Cases</h4>
+        <p>AI chatbot UIs, real-time inference in browser, Node.js backends for AI APIs, visualization dashboards with D3.js</p>
+        <h4>Key Libraries</h4>
+        <p>TensorFlow.js, brain.js, ONNX Runtime Web, Transformers.js, LangChain.js, AI SDK (Vercel)</p>
+        <h4>Quick Start</h4>
+        <code><span class="kw">import</span> * <span class="kw">as</span> tf <span class="kw">from</span> <span class="str">'@tensorflow/tfjs'</span>;
+
+<span class="cm">// Create a simple model</span>
+<span class="kw">const</span> model = tf.sequential();
+model.<span class="fn">add</span>(tf.layers.<span class="fn">dense</span>({
+  units: <span class="num">1</span>, inputShape: [<span class="num">1</span>]
+}));
+<span class="kw">await</span> model.<span class="fn">fit</span>(xs, ys);</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#ef4444">
+      <div class="card-icon">⚡</div>
+      <div class="card-title">C++ / CUDA</div>
+      <div class="card-desc">The engine under the hood. PyTorch, TensorFlow internals, and GPU kernels are all C++/CUDA.</div>
+      <div class="card-tags">
+        <span class="tag pink">Performance</span>
+        <span class="tag pink">GPU</span>
+        <span class="tag">Kernels</span>
+      </div>
+      <button class="expand-btn" onclick="toggleCard(this)">Explore C++</button>
+      <div class="card-detail">
+        <h4>Role in AI</h4>
+        <p>Writing custom CUDA kernels for GPU acceleration, building C++ extensions for PyTorch/TF, implementing inference engines (llama.cpp), building embedded AI.</p>
+        <h4>Key Frameworks</h4>
+        <p>CUDA, cuDNN, TensorRT, ONNX Runtime (C++), LibTorch, OpenCV</p>
+        <h4>CUDA Kernel Example</h4>
+        <code><span class="cls">__global__</span> <span class="kw">void</span> <span class="fn">matmul</span>(
+  <span class="kw">float</span>* A, <span class="kw">float</span>* B, <span class="kw">float</span>* C, <span class="kw">int</span> N) {
+  <span class="kw">int</span> row = blockIdx.y * blockDim.y + threadIdx.y;
+  <span class="kw">int</span> col = blockIdx.x * blockDim.x + threadIdx.x;
+  <span class="cm">// parallel matrix multiply</span>
+}</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#8b5cf6">
+      <div class="card-icon">🔬</div>
+      <div class="card-title">Julia</div>
+      <div class="card-desc">High-performance scientific computing. Combines Python's ease with C's speed — growing in ML research.</div>
+      <div class="card-tags">
+        <span class="tag purple">Scientific</span>
+        <span class="tag purple">High Perf</span>
+        <span class="tag">Research</span>
+      </div>
+      <button class="expand-btn" onclick="toggleCard(this)">Explore Julia</button>
+      <div class="card-detail">
+        <h4>When to Use Julia</h4>
+        <p>Numerical computing, differential equations, scientific simulations, high-performance ML research. Used by MIT, Stanford for computational math.</p>
+        <h4>Key Libraries</h4>
+        <p>Flux.jl (ML), DataFrames.jl, Plots.jl, DifferentialEquations.jl, Turing.jl (probabilistic)</p>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#f97316">
+      <div class="card-icon">🦀</div>
+      <div class="card-title">Rust</div>
+      <div class="card-desc">Memory-safe systems programming. Rising star for inference engines and AI infrastructure.</div>
+      <div class="card-tags">
+        <span class="tag orange">Inference</span>
+        <span class="tag orange">Safety</span>
+        <span class="tag">Systems</span>
+      </div>
+      <button class="expand-btn" onclick="toggleCard(this)">Explore Rust</button>
+      <div class="card-detail">
+        <h4>AI Use Cases</h4>
+        <p>candle (HuggingFace's Rust ML framework), building fast inference servers, WebAssembly AI, Qdrant vector database written in Rust.</p>
+        <h4>Key Libraries</h4>
+        <p>candle, burn, tch-rs (PyTorch bindings), tokenizers, safetensors</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box green" style="margin-top:32px">
+    <h4>💡 Language Recommendation by Role</h4>
+    <p><strong>Data Scientist:</strong> Python + SQL + R &nbsp;|&nbsp; <strong>ML Engineer:</strong> Python + C++/CUDA &nbsp;|&nbsp; <strong>AI App Developer:</strong> Python + JavaScript &nbsp;|&nbsp; <strong>Researcher:</strong> Python + Julia</p>
+  </div>
+</section>
+
+<!-- ML FRAMEWORKS -->
+<section id="ml-frameworks">
+  <div class="section-tag">§ 03 · Core ML</div>
+  <h2 class="sec-title">ML & Deep Learning Frameworks <span class="level level-intermediate">Intermediate</span></h2>
+  <p class="sec-desc">The libraries that implement the math of machine learning. These handle tensors, automatic differentiation, and GPU acceleration.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(this,'dl-tab')">Deep Learning</button>
+    <button class="tab-btn" onclick="switchTab(this,'classical-tab')">Classical ML</button>
+    <button class="tab-btn" onclick="switchTab(this,'compare-tab')">Comparison</button>
+  </div>
+
+  <div id="dl-tab" class="tab-panel active">
+    <div class="cards">
+      <div class="card" style="--accent:#ee4c2c">
+        <div class="card-icon">🔥</div>
+        <div class="card-title">PyTorch</div>
+        <div class="card-desc">The research favorite. Dynamic computational graphs, Pythonic design. Powers most LLM research including GPT, LLaMA, Claude's training stack.</div>
+        <div class="card-tags">
+          <span class="tag">#1 Research</span>
+          <span class="tag green">Dynamic Graph</span>
+          <span class="tag">LLM Training</span>
+        </div>
+        <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+        <div class="card-detail">
+          <h4>Core Concepts</h4>
+          <p><strong>Tensor:</strong> n-dimensional array with GPU support. <strong>Autograd:</strong> automatic differentiation. <strong>nn.Module:</strong> building block for models. <strong>DataLoader:</strong> efficient batching.</p>
+          <h4>Training Loop Pattern</h4>
+          <code><span class="kw">import</span> torch
+<span class="kw">import</span> torch.nn <span class="kw">as</span> nn
+
+<span class="kw">class</span> <span class="cls">SimpleNet</span>(nn.Module):
+    <span class="kw">def</span> <span class="fn">__init__</span>(self):
+        super().<span class="fn">__init__</span>()
+        self.layers = nn.<span class="fn">Sequential</span>(
+            nn.<span class="fn">Linear</span>(<span class="num">784</span>, <span class="num">256</span>),
+            nn.<span class="fn">ReLU</span>(),
+            nn.<span class="fn">Linear</span>(<span class="num">256</span>, <span class="num">10</span>)
+        )
+    <span class="kw">def</span> <span class="fn">forward</span>(self, x):
+        <span class="kw">return</span> self.layers(x)
+
+model = <span class="fn">SimpleNet</span>().<span class="fn">cuda</span>()
+optimizer = torch.optim.<span class="fn">Adam</span>(model.<span class="fn">parameters</span>())
+criterion = nn.<span class="fn">CrossEntropyLoss</span>()
+
+<span class="kw">for</span> x, y <span class="kw">in</span> dataloader:
+    pred = <span class="fn">model</span>(x.<span class="fn">cuda</span>())
+    loss = <span class="fn">criterion</span>(pred, y.<span class="fn">cuda</span>())
+    optimizer.<span class="fn">zero_grad</span>()
+    loss.<span class="fn">backward</span>()
+    optimizer.<span class="fn">step</span>()</code>
+          <h4>Ecosystem</h4>
+          <p>torchvision, torchaudio, torchtext, torch.distributed, PyTorch Lightning, FastAI</p>
+        </div>
+      </div>
+
+      <div class="card" style="--accent:#ff6f00">
+        <div class="card-icon">🧮</div>
+        <div class="card-title">TensorFlow / Keras</div>
+        <div class="card-desc">Google's production-grade framework. Keras provides a beginner-friendly API. TFLite for mobile, TF.js for browser.</div>
+        <div class="card-tags">
+          <span class="tag orange">Production</span>
+          <span class="tag orange">Mobile TFLite</span>
+          <span class="tag">Google</span>
+        </div>
+        <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+        <div class="card-detail">
+          <h4>Keras API (High Level)</h4>
+          <code><span class="kw">import</span> tensorflow <span class="kw">as</span> tf
+
+model = tf.keras.<span class="fn">Sequential</span>([
+    tf.keras.layers.<span class="fn">Dense</span>(<span class="num">128</span>, activation=<span class="str">'relu'</span>),
+    tf.keras.layers.<span class="fn">Dropout</span>(<span class="num">0.2</span>),
+    tf.keras.layers.<span class="fn">Dense</span>(<span class="num">10</span>, activation=<span class="str">'softmax'</span>)
+])
+
+model.<span class="fn">compile</span>(
+    optimizer=<span class="str">'adam'</span>,
+    loss=<span class="str">'sparse_categorical_crossentropy'</span>,
+    metrics=[<span class="str">'accuracy'</span>]
+)
+model.<span class="fn">fit</span>(X_train, y_train, epochs=<span class="num">10</span>)</code>
+          <h4>When to Choose TF</h4>
+          <p>Production deployments, mobile (TFLite), browser (TF.js), TensorFlow Extended (TFX) for ML pipelines at scale.</p>
+        </div>
+      </div>
+
+      <div class="card" style="--accent:#4285f4">
+        <div class="card-icon">⚗️</div>
+        <div class="card-title">JAX</div>
+        <div class="card-desc">Google's research framework. NumPy-compatible with JIT compilation, vectorization, and automatic differentiation. Powers Gemini training.</div>
+        <div class="card-tags">
+          <span class="tag">Research</span>
+          <span class="tag">JIT/XLA</span>
+          <span class="tag purple">Google Brain</span>
+        </div>
+        <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+        <div class="card-detail">
+          <h4>Key Features</h4>
+          <p><strong>jit:</strong> just-in-time compilation for speed. <strong>vmap:</strong> automatic vectorization. <strong>grad:</strong> function transforms for gradients. <strong>pmap:</strong> parallelism across devices.</p>
+          <code><span class="kw">import</span> jax.numpy <span class="kw">as</span> jnp
+<span class="kw">from</span> jax <span class="kw">import</span> grad, jit, vmap
+
+<span class="cm"># JIT-compiled function</span>
+<span class="cls">@jit</span>
+<span class="kw">def</span> <span class="fn">loss_fn</span>(params, x, y):
+    pred = <span class="fn">model_apply</span>(params, x)
+    <span class="kw">return</span> jnp.<span class="fn">mean</span>((pred - y) ** <span class="num">2</span>)
+
+<span class="cm"># Auto-differentiation</span>
+grad_fn = <span class="fn">grad</span>(loss_fn)</code>
+        </div>
+      </div>
+
+      <div class="card" style="--accent:#34d399">
+        <div class="card-icon">⚡</div>
+        <div class="card-title">Flax / Haiku / Equinox</div>
+        <div class="card-desc">Neural network libraries built on top of JAX. Flax is Google's official, Haiku from DeepMind, Equinox is Pythonic.</div>
+        <div class="card-tags">
+          <span class="tag green">JAX-based</span>
+          <span class="tag green">Research</span>
+          <span class="tag">DeepMind</span>
+        </div>
+      </div>
+
+      <div class="card" style="--accent:#e11d48">
+        <div class="card-icon">⚡</div>
+        <div class="card-title">PyTorch Lightning</div>
+        <div class="card-desc">Lightweight wrapper over PyTorch that removes boilerplate and organizes code for scalable training.</div>
+        <div class="card-tags">
+          <span class="tag">Wrapper</span>
+          <span class="tag pink">Clean Code</span>
+          <span class="tag">Multi-GPU</span>
+        </div>
+        <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+        <div class="card-detail">
+          <code><span class="kw">import</span> lightning <span class="kw">as</span> L
+
+<span class="kw">class</span> <span class="cls">MyModel</span>(L.LightningModule):
+    <span class="kw">def</span> <span class="fn">training_step</span>(self, batch, idx):
+        x, y = batch
+        loss = <span class="fn">F.cross_entropy</span>(self(x), y)
+        <span class="kw">return</span> loss
+    
+    <span class="kw">def</span> <span class="fn">configure_optimizers</span>(self):
+        <span class="kw">return</span> torch.optim.<span class="fn">Adam</span>(self.<span class="fn">parameters</span>())
+
+trainer = L.<span class="fn">Trainer</span>(max_epochs=<span class="num">10</span>, accelerator=<span class="str">"gpu"</span>)
+trainer.<span class="fn">fit</span>(model, dataloader)</code>
+        </div>
+      </div>
+
+      <div class="card" style="--accent:#6366f1">
+        <div class="card-icon">🤗</div>
+        <div class="card-title">Hugging Face Transformers</div>
+        <div class="card-desc">The central hub for pretrained models. 400,000+ models for NLP, vision, audio, multimodal. Works with both PyTorch and TF.</div>
+        <div class="card-tags">
+          <span class="tag purple">Pretrained</span>
+          <span class="tag purple">Hub</span>
+          <span class="tag">NLP/CV</span>
+        </div>
+        <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+        <div class="card-detail">
+          <h4>Pipeline API (Easiest)</h4>
+          <code><span class="kw">from</span> transformers <span class="kw">import</span> pipeline
+
+<span class="cm"># Sentiment Analysis</span>
+clf = <span class="fn">pipeline</span>(<span class="str">"sentiment-analysis"</span>)
+<span class="fn">clf</span>(<span class="str">"I love this product!"</span>)
+<span class="cm"># → [{'label':'POSITIVE','score':0.99}]</span>
+
+<span class="cm"># Text Generation</span>
+gen = <span class="fn">pipeline</span>(<span class="str">"text-generation"</span>, 
+               model=<span class="str">"gpt2"</span>)
+<span class="fn">gen</span>(<span class="str">"Once upon a time"</span>)
+
+<span class="cm"># Fine-tuning with Trainer</span>
+<span class="kw">from</span> transformers <span class="kw">import</span> Trainer, TrainingArguments
+trainer = <span class="fn">Trainer</span>(model=model, args=args, 
+                   train_dataset=train_ds)</code>
+          <h4>Available Tasks</h4>
+          <p>Text classification, NER, Q&A, summarization, translation, image classification, object detection, audio classification, zero-shot, few-shot</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="classical-tab" class="tab-panel">
+    <div class="cards">
+      <div class="card" style="--accent:#f59e0b">
+        <div class="card-icon">🔬</div>
+        <div class="card-title">scikit-learn</div>
+        <div class="card-desc">The gold standard for classical ML. Consistent API across hundreds of algorithms. Essential for preprocessing, model selection, and evaluation.</div>
+        <div class="card-tags">
+          <span class="tag yellow">Classical ML</span>
+          <span class="tag yellow">Must Know</span>
+          <span class="tag">Pipelines</span>
+        </div>
+        <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+        <div class="card-detail">
+          <h4>Core Algorithms</h4>
+          <p>Linear/Logistic Regression, Decision Trees, Random Forest, SVM, KNN, Naive Bayes, K-Means, PCA, DBSCAN</p>
+          <h4>Full Pipeline</h4>
+          <code><span class="kw">from</span> sklearn.pipeline <span class="kw">import</span> Pipeline
+<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> StandardScaler
+<span class="kw">from</span> sklearn.ensemble <span class="kw">import</span> RandomForestClassifier
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> cross_val_score
+
+pipe = <span class="fn">Pipeline</span>([
+    (<span class="str">'scaler'</span>, <span class="fn">StandardScaler</span>()),
+    (<span class="str">'model'</span>, <span class="fn">RandomForestClassifier</span>(n_estimators=<span class="num">100</span>))
+])
+
+scores = <span class="fn">cross_val_score</span>(pipe, X, y, cv=<span class="num">5</span>)
+<span class="fn">print</span>(<span class="fn">f</span><span class="str">"Accuracy: {scores.mean():.3f}"</span>)</code>
+        </div>
+      </div>
+
+      <div class="card" style="--accent:#22c55e">
+        <div class="card-icon">🌲</div>
+        <div class="card-title">XGBoost / LightGBM / CatBoost</div>
+        <div class="card-desc">Gradient boosting champions. Dominate Kaggle competitions and structured/tabular data problems.</div>
+        <div class="card-tags">
+          <span class="tag green">Tabular</span>
+          <span class="tag green">Kaggle ♛</span>
+          <span class="tag">Boosting</span>
+        </div>
+        <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+        <div class="card-detail">
+          <h4>When to Use</h4>
+          <p>Structured/tabular data, features are known, need fast inference. Often outperforms deep learning on tabular data.</p>
+          <code><span class="kw">import</span> xgboost <span class="kw">as</span> xgb
+
+model = xgb.<span class="fn">XGBClassifier</span>(
+    n_estimators=<span class="num">500</span>,
+    learning_rate=<span class="num">0.05</span>,
+    max_depth=<span class="num">6</span>,
+    subsample=<span class="num">0.8</span>,
+    use_label_encoder=<span class="kw">False</span>
+)
+model.<span class="fn">fit</span>(X_train, y_train,
+         eval_set=[(X_val, y_val)],
+         early_stopping_rounds=<span class="num">50</span>)</code>
+        </div>
+      </div>
+
+      <div class="card" style="--accent:#6366f1">
+        <div class="card-icon">📈</div>
+        <div class="card-title">StatsModels</div>
+        <div class="card-desc">Statistical modeling and econometrics in Python. Hypothesis tests, time-series analysis (ARIMA), OLS regression.</div>
+        <div class="card-tags">
+          <span class="tag purple">Statistics</span>
+          <span class="tag purple">Time Series</span>
+          <span class="tag">Finance</span>
+        </div>
+      </div>
+
+      <div class="card" style="--accent:#ec4899">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">Optuna / Hyperopt</div>
+        <div class="card-desc">Hyperparameter optimization frameworks. Automatically find the best model configuration using Bayesian optimization.</div>
+        <div class="card-tags">
+          <span class="tag pink">AutoML</span>
+          <span class="tag pink">HPO</span>
+          <span class="tag">Bayesian</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="compare-tab" class="tab-panel">
+    <table class="comp-table">
+      <tr>
+        <th>Framework</th>
+        <th>Best For</th>
+        <th>Learning Curve</th>
+        <th>Production</th>
+        <th>Community</th>
+        <th>Industry Use</th>
+      </tr>
+      <tr>
+        <td><strong>PyTorch</strong></td>
+        <td>Research, LLMs, custom models</td>
+        <td><span class="badge badge-yellow">Medium</span></td>
+        <td><span class="badge badge-green">✓ Strong</span></td>
+        <td><span class="badge badge-green">Huge</span></td>
+        <td>Meta, Tesla, OpenAI</td>
+      </tr>
+      <tr>
+        <td><strong>TensorFlow/Keras</strong></td>
+        <td>Production, mobile, web</td>
+        <td><span class="badge badge-green">Easy (Keras)</span></td>
+        <td><span class="badge badge-green">✓ Best</span></td>
+        <td><span class="badge badge-green">Huge</span></td>
+        <td>Google, Airbnb, Twitter</td>
+      </tr>
+      <tr>
+        <td><strong>JAX</strong></td>
+        <td>Research, custom kernels</td>
+        <td><span class="badge badge-red">Hard</span></td>
+        <td><span class="badge badge-yellow">Growing</span></td>
+        <td><span class="badge badge-yellow">Medium</span></td>
+        <td>Google, DeepMind</td>
+      </tr>
+      <tr>
+        <td><strong>scikit-learn</strong></td>
+        <td>Classical ML, tabular data</td>
+        <td><span class="badge badge-green">Easy</span></td>
+        <td><span class="badge badge-green">✓ Great</span></td>
+        <td><span class="badge badge-green">Huge</span></td>
+        <td>Universal</td>
+      </tr>
+      <tr>
+        <td><strong>XGBoost</strong></td>
+        <td>Tabular, competitions</td>
+        <td><span class="badge badge-green">Easy</span></td>
+        <td><span class="badge badge-green">✓ Fast</span></td>
+        <td><span class="badge badge-green">Large</span></td>
+        <td>Finance, industry</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- DATA PROCESSING -->
+<section id="data-tools">
+  <div class="section-tag">§ 04 · Data Layer</div>
+  <h2 class="sec-title">Data Processing & Engineering <span class="level level-beginner">Beginner→</span></h2>
+  <p class="sec-desc">Before any model is trained, data must be collected, cleaned, transformed, and stored. These tools form the data foundation of every AI project.</p>
+
+  <div class="cards">
+    <div class="card" style="--accent:#150458">
+      <div class="card-icon">🐼</div>
+      <div class="card-title">Pandas</div>
+      <div class="card-desc">The DataFrame library. Load, clean, transform, and analyze tabular data with a SQL-like API in Python.</div>
+      <div class="card-tags"><span class="tag">DataFrames</span><span class="tag green">Essential</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+      <div class="card-detail">
+        <h4>Essential Operations</h4>
+        <code><span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+df = pd.<span class="fn">read_csv</span>(<span class="str">'data.csv'</span>)
+
+<span class="cm"># Filter, group, aggregate</span>
+result = (df
+  .<span class="fn">query</span>(<span class="str">'age > 25'</span>)
+  .<span class="fn">groupby</span>(<span class="str">'category'</span>)
+  .<span class="fn">agg</span>({<span class="str">'sales'</span>: <span class="str">'sum'</span>, <span class="str">'price'</span>: <span class="str">'mean'</span>})
+  .<span class="fn">reset_index</span>()
+  .<span class="fn">sort_values</span>(<span class="str">'sales'</span>, ascending=<span class="kw">False</span>)
+)
+
+<span class="cm"># Handle missing values</span>
+df.<span class="fn">fillna</span>(df.<span class="fn">mean</span>(), inplace=<span class="kw">True</span>)
+df.<span class="fn">dropna</span>(subset=[<span class="str">'target'</span>], inplace=<span class="kw">True</span>)</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#4dabf7">
+      <div class="card-icon">🔢</div>
+      <div class="card-title">NumPy</div>
+      <div class="card-desc">The foundation of numerical computing in Python. N-dimensional arrays, broadcasting, linear algebra. Everything runs on NumPy under the hood.</div>
+      <div class="card-tags"><span class="tag">Arrays</span><span class="tag green">Foundation</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+      <div class="card-detail">
+        <code><span class="kw">import</span> numpy <span class="kw">as</span> np
+
+<span class="cm"># Create arrays</span>
+A = np.<span class="fn">random.randn</span>(<span class="num">100</span>, <span class="num">50</span>)
+B = np.<span class="fn">ones</span>((<span class="num">50</span>, <span class="num">10</span>))
+
+<span class="cm"># Matrix multiply, dot product</span>
+C = A @ B  <span class="cm"># shape: (100,10)</span>
+
+<span class="cm"># Broadcasting</span>
+normalized = (A - A.<span class="fn">mean</span>()) / A.<span class="fn">std</span>()
+
+<span class="cm"># Linear algebra</span>
+eigenvalues, eigenvectors = np.linalg.<span class="fn">eig</span>(A.T @ A)</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#e25822">
+      <div class="card-icon">✨</div>
+      <div class="card-title">Apache Spark</div>
+      <div class="card-desc">Distributed data processing for big data. Process terabytes across clusters. PySpark provides Python API. Used for large-scale ML pipelines.</div>
+      <div class="card-tags"><span class="tag orange">Big Data</span><span class="tag orange">Distributed</span><span class="tag">Cluster</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+      <div class="card-detail">
+        <code><span class="kw">from</span> pyspark.sql <span class="kw">import</span> SparkSession
+<span class="kw">from</span> pyspark.ml.feature <span class="kw">import</span> VectorAssembler
+<span class="kw">from</span> pyspark.ml.regression <span class="kw">import</span> LinearRegression
+
+spark = SparkSession.builder.<span class="fn">getOrCreate</span>()
+df = spark.<span class="fn">read</span>.<span class="fn">parquet</span>(<span class="str">"s3://data/..."</span>)
+
+<span class="cm"># Distributed SQL</span>
+df.<span class="fn">createOrReplaceTempView</span>(<span class="str">"sales"</span>)
+result = spark.sql(<span class="str">"SELECT year, SUM(revenue)..."</span>)</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#2196f3">
+      <div class="card-icon">🌊</div>
+      <div class="card-title">Dask</div>
+      <div class="card-desc">Scale Pandas and NumPy to larger-than-memory datasets. Parallel computing on a single machine or cluster. Familiar API for Pandas users.</div>
+      <div class="card-tags"><span class="tag">Parallel</span><span class="tag">Scale Pandas</span></div>
+    </div>
+
+    <div class="card" style="--accent:#00a3ff">
+      <div class="card-icon">☁️</div>
+      <div class="card-title">Ray</div>
+      <div class="card-desc">Distributed Python for scaling AI workloads. Ray Tune (HPO), Ray Train (distributed training), Ray Serve (model serving). Used by OpenAI.</div>
+      <div class="card-tags"><span class="tag">Distributed</span><span class="tag">Scale</span><span class="tag purple">OpenAI</span></div>
+    </div>
+
+    <div class="card" style="--accent:#f59e0b">
+      <div class="card-icon">🔄</div>
+      <div class="card-title">Apache Airflow</div>
+      <div class="card-desc">Workflow orchestration. Schedule and monitor complex data pipelines as DAGs (Directed Acyclic Graphs). The industry standard.</div>
+      <div class="card-tags"><span class="tag yellow">Pipeline</span><span class="tag yellow">Scheduling</span><span class="tag">DAG</span></div>
+    </div>
+
+    <div class="card" style="--accent:#8b5cf6">
+      <div class="card-icon">📊</div>
+      <div class="card-title">dbt (Data Build Tool)</div>
+      <div class="card-desc">Transform data in your warehouse using SQL. Manage data models, tests, and documentation. Essential in modern data stacks.</div>
+      <div class="card-tags"><span class="tag purple">SQL</span><span class="tag purple">Warehouse</span><span class="tag">Analytics</span></div>
+    </div>
+
+    <div class="card" style="--accent:#ff6b6b">
+      <div class="card-icon">🖼️</div>
+      <div class="card-title">OpenCV</div>
+      <div class="card-desc">Computer Vision library. Image loading, processing, augmentation, and classical CV algorithms. Used alongside deep learning models.</div>
+      <div class="card-tags"><span class="tag pink">Computer Vision</span><span class="tag">Images</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DATABASES -->
+<section id="databases">
+  <div class="section-tag">§ 05 · Storage Layer</div>
+  <h2 class="sec-title">Databases & Storage <span class="level level-intermediate">Intermediate</span></h2>
+  <p class="sec-desc">Where your data lives — from structured business data in relational DBs to high-dimensional vectors for semantic search in AI applications.</p>
+
+  <div class="arch-container">
+    <h3>Database Selection Guide</h3>
+    <svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:600px">
+      <defs>
+        <marker id="arr2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="rgba(100,100,180,0.5)"/>
+        </marker>
+      </defs>
+      <!-- YOUR DATA -->
+      <rect x="330" y="10" width="140" height="44" rx="8" fill="rgba(68,170,255,0.15)" stroke="#4af" stroke-width="1.5"/>
+      <text x="400" y="30" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="bold" font-family="Syne">Your Data</text>
+      <text x="400" y="46" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Space Mono">What do you need?</text>
+      <!-- Arrows down-left and down-right -->
+      <line x1="360" y1="54" x2="200" y2="100" stroke="rgba(100,100,180,0.4)" stroke-width="1.5" marker-end="url(#arr2)"/>
+      <line x1="400" y1="54" x2="400" y2="100" stroke="rgba(100,100,180,0.4)" stroke-width="1.5" marker-end="url(#arr2)"/>
+      <line x1="440" y1="54" x2="600" y2="100" stroke="rgba(100,100,180,0.4)" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <!-- Category 1: Relational -->
+      <rect x="50" y="102" width="140" height="44" rx="8" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="120" y="120" text-anchor="middle" fill="#34d399" font-size="11" font-family="Space Mono">RELATIONAL</text>
+      <text x="120" y="136" text-anchor="middle" fill="#94a3b8" font-size="10">Structured tables + SQL</text>
+      <!-- Category 2: NoSQL -->
+      <rect x="330" y="102" width="140" height="44" rx="8" fill="rgba(251,146,60,0.1)" stroke="#fb923c" stroke-width="1.5"/>
+      <text x="400" y="120" text-anchor="middle" fill="#fb923c" font-size="11" font-family="Space Mono">NoSQL / DOCUMENT</text>
+      <text x="400" y="136" text-anchor="middle" fill="#94a3b8" font-size="10">Flexible schema, JSON</text>
+      <!-- Category 3: Vector -->
+      <rect x="610" y="102" width="140" height="44" rx="8" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="680" y="120" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="Space Mono">VECTOR DB</text>
+      <text x="680" y="136" text-anchor="middle" fill="#94a3b8" font-size="10">Semantic / AI search</text>
+
+      <line x1="120" y1="146" x2="120" y2="178" stroke="rgba(52,211,153,0.4)" stroke-width="1" marker-end="url(#arr2)"/>
+      <line x1="400" y1="146" x2="400" y2="178" stroke="rgba(251,146,60,0.4)" stroke-width="1" marker-end="url(#arr2)"/>
+      <line x1="680" y1="146" x2="680" y2="178" stroke="rgba(167,139,250,0.4)" stroke-width="1" marker-end="url(#arr2)"/>
+
+      <!-- Examples -->
+      <rect x="30" y="180" width="180" height="60" rx="6" fill="rgba(16,16,26,0.9)" stroke="rgba(52,211,153,0.3)" stroke-width="1"/>
+      <text x="120" y="200" text-anchor="middle" fill="#e2e8f0" font-size="11" font-family="Space Mono">PostgreSQL · MySQL</text>
+      <text x="120" y="216" text-anchor="middle" fill="#94a3b8" font-size="10">SQLite · Amazon RDS</text>
+      <text x="120" y="232" text-anchor="middle" fill="#94a3b8" font-size="10">CockroachDB · Supabase</text>
+
+      <rect x="310" y="180" width="180" height="60" rx="6" fill="rgba(16,16,26,0.9)" stroke="rgba(251,146,60,0.3)" stroke-width="1"/>
+      <text x="400" y="200" text-anchor="middle" fill="#e2e8f0" font-size="11" font-family="Space Mono">MongoDB · Redis</text>
+      <text x="400" y="216" text-anchor="middle" fill="#94a3b8" font-size="10">Cassandra · DynamoDB</text>
+      <text x="400" y="232" text-anchor="middle" fill="#94a3b8" font-size="10">Firebase · Elasticsearch</text>
+
+      <rect x="590" y="180" width="180" height="60" rx="6" fill="rgba(16,16,26,0.9)" stroke="rgba(167,139,250,0.3)" stroke-width="1"/>
+      <text x="680" y="200" text-anchor="middle" fill="#e2e8f0" font-size="11" font-family="Space Mono">Pinecone · Weaviate</text>
+      <text x="680" y="216" text-anchor="middle" fill="#94a3b8" font-size="10">ChromaDB · Qdrant</text>
+      <text x="680" y="232" text-anchor="middle" fill="#94a3b8" font-size="10">FAISS · pgvector</text>
+    </svg>
+  </div>
+
+  <div class="highlight-box">
+    <h3 style="font-size:16px;margin-bottom:16px;color:var(--neon2)">🎯 Vector Databases — The Critical GenAI Concept</h3>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Vector databases store <strong style="color:var(--text)">embeddings</strong> — dense numerical representations of text, images, or any data — and enable similarity search at scale. This is the backbone of RAG (Retrieval-Augmented Generation).</p>
+        <div class="info-box purple" style="margin:0">
+          <p>When you ask ChatGPT about your documents, it:<br>1. Converts your query → embedding vector<br>2. Searches vector DB for similar chunks<br>3. Feeds retrieved context to LLM<br>4. LLM generates answer with context</p>
+        </div>
+      </div>
+      <div>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">PYTHON · CHROMADB</span>
+            <div class="code-dots"><div class="code-dot" style="background:#ff5f57"></div><div class="code-dot" style="background:#ffbd2e"></div><div class="code-dot" style="background:#28c840"></div></div>
+          </div>
+          <div class="code-body"><span class="kw">import</span> chromadb
+<span class="kw">from</span> chromadb.utils <span class="kw">import</span> embedding_functions
+
+client = chromadb.<span class="fn">Client</span>()
+ef = embedding_functions.<span class="fn">OpenAIEmbeddingFunction</span>(
+    api_key=<span class="str">"..."</span>, model_name=<span class="str">"text-embedding-3-small"</span>
+)
+collection = client.<span class="fn">create_collection</span>(
+    name=<span class="str">"my_docs"</span>, embedding_function=ef
+)
+collection.<span class="fn">add</span>(documents=[<span class="str">"AI is..."</span>], ids=[<span class="str">"1"</span>])
+
+results = collection.<span class="fn">query</span>(
+    query_texts=[<span class="str">"what is AI?"</span>], n_results=<span class="num">3</span>
+)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards" style="margin-top:24px">
+    <div class="card" style="--accent:#336791">
+      <div class="card-icon">🐘</div>
+      <div class="card-title">PostgreSQL + pgvector</div>
+      <div class="card-desc">The most popular open-source relational DB. With pgvector extension, it can also store and query vectors — one DB for everything.</div>
+      <div class="card-tags"><span class="tag">SQL</span><span class="tag green">+ Vectors</span><span class="tag">Open Source</span></div>
+    </div>
+    <div class="card" style="--accent:#4db33d">
+      <div class="card-icon">🍃</div>
+      <div class="card-title">MongoDB</div>
+      <div class="card-desc">Document database. Store JSON-like documents with flexible schemas. Great for logging AI conversations and unstructured data.</div>
+      <div class="card-tags"><span class="tag">NoSQL</span><span class="tag green">JSON</span><span class="tag">Flexible</span></div>
+    </div>
+    <div class="card" style="--accent:#ff4444">
+      <div class="card-icon">⚡</div>
+      <div class="card-title">Redis</div>
+      <div class="card-desc">In-memory data store. Used for caching LLM responses, session storage, real-time leaderboards. Redis Stack includes vector search.</div>
+      <div class="card-tags"><span class="tag pink">Cache</span><span class="tag pink">Fast</span><span class="tag">Sessions</span></div>
+    </div>
+    <div class="card" style="--accent:#13aa52">
+      <div class="card-icon">📌</div>
+      <div class="card-title">Pinecone</div>
+      <div class="card-desc">Managed vector database. Production-ready, scales to billions of vectors. The most popular choice for RAG in production.</div>
+      <div class="card-tags"><span class="tag green">Managed</span><span class="tag green">RAG</span><span class="tag">Scale</span></div>
+    </div>
+    <div class="card" style="--accent:#8b5cf6">
+      <div class="card-icon">🔮</div>
+      <div class="card-title">Weaviate</div>
+      <div class="card-desc">Open-source vector DB with built-in ML models. Supports hybrid search (vector + keyword) and GraphQL API.</div>
+      <div class="card-tags"><span class="tag purple">Open Source</span><span class="tag purple">Hybrid Search</span></div>
+    </div>
+    <div class="card" style="--accent:#f43f5e">
+      <div class="card-icon">🎯</div>
+      <div class="card-title">Qdrant</div>
+      <div class="card-desc">High-performance vector search written in Rust. Supports filtering with metadata, payload indexing. Self-hosted or cloud.</div>
+      <div class="card-tags"><span class="tag pink">Rust</span><span class="tag pink">Fast</span><span class="tag">Filtering</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GENAI FRAMEWORKS -->
+<section id="genai">
+  <div class="section-tag">§ 06 · GenAI Stack</div>
+  <h2 class="sec-title">LLM & GenAI Frameworks <span class="level level-intermediate">Intermediate</span></h2>
+  <p class="sec-desc">These frameworks sit on top of LLMs to help you build AI applications — from simple chatbots to complex multi-agent systems.</p>
+
+  <div class="arch-container">
+    <h3>GenAI Application Architecture</h3>
+    <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:600px">
+      <!-- User -->
+      <rect x="20" y="70" width="90" height="60" rx="8" fill="rgba(68,170,255,0.1)" stroke="#4af" stroke-width="1.5"/>
+      <text x="65" y="97" text-anchor="middle" fill="#e2e8f0" font-size="22">👤</text>
+      <text x="65" y="116" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Space Mono">User Query</text>
+      <line x1="112" y1="100" x2="138" y2="100" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <!-- LangChain/Orchestration -->
+      <rect x="140" y="50" width="160" height="100" rx="8" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="220" y="80" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="bold" font-family="Space Mono">ORCHESTRATION</text>
+      <text x="220" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">LangChain / LlamaIndex</text>
+      <text x="220" y="112" text-anchor="middle" fill="#94a3b8" font-size="10">Prompt Templates</text>
+      <text x="220" y="126" text-anchor="middle" fill="#94a3b8" font-size="10">Memory + Tools</text>
+      <text x="220" y="140" text-anchor="middle" fill="#94a3b8" font-size="10">Agent Loops</text>
+      <line x1="302" y1="100" x2="328" y2="100" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <!-- Vector DB + Retrieval -->
+      <rect x="330" y="50" width="130" height="100" rx="8" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="395" y="78" text-anchor="middle" fill="#34d399" font-size="11" font-weight="bold" font-family="Space Mono">RETRIEVAL</text>
+      <text x="395" y="94" text-anchor="middle" fill="#94a3b8" font-size="10">Vector Search</text>
+      <text x="395" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">Pinecone/Chroma</text>
+      <text x="395" y="126" text-anchor="middle" fill="#94a3b8" font-size="10">Document Chunks</text>
+      <text x="395" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">Embeddings</text>
+      <line x1="462" y1="100" x2="488" y2="100" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <!-- LLM -->
+      <rect x="490" y="50" width="130" height="100" rx="8" fill="rgba(244,114,182,0.1)" stroke="#f472b6" stroke-width="1.5"/>
+      <text x="555" y="78" text-anchor="middle" fill="#f472b6" font-size="11" font-weight="bold" font-family="Space Mono">LLM API</text>
+      <text x="555" y="94" text-anchor="middle" fill="#94a3b8" font-size="10">OpenAI GPT-4o</text>
+      <text x="555" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">Anthropic Claude</text>
+      <text x="555" y="126" text-anchor="middle" fill="#94a3b8" font-size="10">Google Gemini</text>
+      <text x="555" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">Local: Ollama</text>
+      <line x1="622" y1="100" x2="648" y2="100" stroke="rgba(100,100,180,0.5)" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <!-- Response -->
+      <rect x="650" y="70" width="130" height="60" rx="8" fill="rgba(250,204,21,0.1)" stroke="#facc15" stroke-width="1.5"/>
+      <text x="715" y="97" text-anchor="middle" fill="#facc15" font-size="11" font-weight="bold" font-family="Space Mono">RESPONSE</text>
+      <text x="715" y="114" text-anchor="middle" fill="#94a3b8" font-size="10">Generated Answer</text>
+    </svg>
+  </div>
+
+  <div class="cards">
+    <div class="card" style="--accent:#6b48ff">
+      <div class="card-icon">🦜</div>
+      <div class="card-title">LangChain</div>
+      <div class="card-desc">The most popular framework for building LLM applications. Chains, agents, memory, tools, document loaders, output parsers — a complete ecosystem.</div>
+      <div class="card-tags"><span class="tag purple">Chains</span><span class="tag purple">Agents</span><span class="tag">Tools</span><span class="tag green">Most Popular</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+      <div class="card-detail">
+        <h4>Core Concepts</h4>
+        <p><strong>Chain:</strong> sequence of LLM calls. <strong>Agent:</strong> LLM decides which tools to use. <strong>Memory:</strong> persist conversation state. <strong>Tools:</strong> functions the agent can call.</p>
+        <h4>Simple RAG Example</h4>
+        <code><span class="kw">from</span> langchain_openai <span class="kw">import</span> ChatOpenAI, OpenAIEmbeddings
+<span class="kw">from</span> langchain_chroma <span class="kw">import</span> Chroma
+<span class="kw">from</span> langchain.chains <span class="kw">import</span> RetrievalQA
+<span class="kw">from</span> langchain_community.document_loaders <span class="kw">import</span> PyPDFLoader
+
+<span class="cm"># Load and embed documents</span>
+loader = <span class="fn">PyPDFLoader</span>(<span class="str">"manual.pdf"</span>)
+docs = loader.<span class="fn">load_and_split</span>()
+vectordb = Chroma.<span class="fn">from_documents</span>(docs, <span class="fn">OpenAIEmbeddings</span>())
+
+<span class="cm"># Create RAG chain</span>
+qa_chain = RetrievalQA.<span class="fn">from_chain_type</span>(
+    llm=<span class="fn">ChatOpenAI</span>(model=<span class="str">"gpt-4o"</span>),
+    retriever=vectordb.<span class="fn">as_retriever</span>(),
+    chain_type=<span class="str">"stuff"</span>
+)
+answer = qa_chain.<span class="fn">invoke</span>(<span class="str">"How do I reset the device?"</span>)</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#f97316">
+      <div class="card-icon">🦙</div>
+      <div class="card-title">LlamaIndex</div>
+      <div class="card-desc">Specialized in data indexing and retrieval for LLMs. Excellent for connecting private documents, databases, and APIs to LLMs. Best RAG framework.</div>
+      <div class="card-tags"><span class="tag orange">RAG</span><span class="tag orange">Indexing</span><span class="tag">Data Connect</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+      <div class="card-detail">
+        <code><span class="kw">from</span> llama_index.core <span class="kw">import</span> VectorStoreIndex, SimpleDirectoryReader
+
+<span class="cm"># Index your documents</span>
+documents = SimpleDirectoryReader(<span class="str">'./docs'</span>).<span class="fn">load_data</span>()
+index = VectorStoreIndex.<span class="fn">from_documents</span>(documents)
+
+<span class="cm"># Query engine</span>
+query_engine = index.<span class="fn">as_query_engine</span>()
+response = query_engine.<span class="fn">query</span>(
+    <span class="str">"What are the key findings?"</span>
+)
+<span class="fn">print</span>(response)</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#34d399">
+      <div class="card-icon">🌿</div>
+      <div class="card-title">Ollama</div>
+      <div class="card-desc">Run LLMs locally on your machine. Download and serve open-source models (LLaMA, Mistral, Phi, Gemma) with a simple API. Privacy-first AI.</div>
+      <div class="card-tags"><span class="tag green">Local LLM</span><span class="tag green">Privacy</span><span class="tag">Open Source</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+      <div class="card-detail">
+        <h4>Quick Start</h4>
+        <code><span class="cm"># Terminal: install and run</span>
+ollama pull llama3.2
+ollama run llama3.2
+
+<span class="cm"># Python API</span>
+<span class="kw">import</span> ollama
+
+response = ollama.<span class="fn">chat</span>(model=<span class="str">'llama3.2'</span>, messages=[
+    {<span class="str">'role'</span>: <span class="str">'user'</span>, <span class="str">'content'</span>: <span class="str">'Why is the sky blue?'</span>}
+])
+<span class="fn">print</span>(response[<span class="str">'message'</span>][<span class="str">'content'</span>])</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#ff6b6b">
+      <div class="card-icon">🤖</div>
+      <div class="card-title">AutoGen (Microsoft)</div>
+      <div class="card-desc">Multi-agent conversation framework. Build systems where multiple AI agents collaborate, debate, and solve problems together.</div>
+      <div class="card-tags"><span class="tag pink">Multi-Agent</span><span class="tag pink">Microsoft</span><span class="tag">Agentic</span></div>
+    </div>
+
+    <div class="card" style="--accent:#4af">
+      <div class="card-icon">🔗</div>
+      <div class="card-title">DSPy (Stanford)</div>
+      <div class="card-desc">Programmatic prompting. Instead of writing prompts, you define your AI task declaratively and DSPy automatically optimizes the prompts.</div>
+      <div class="card-tags"><span class="tag">Prompt Opt</span><span class="tag">Stanford</span><span class="tag purple">Novel</span></div>
+    </div>
+
+    <div class="card" style="--accent:#a78bfa">
+      <div class="card-icon">🦾</div>
+      <div class="card-title">Semantic Kernel (Microsoft)</div>
+      <div class="card-desc">AI orchestration SDK for enterprise. Integrates AI into C#, Python, Java apps. Used in Microsoft 365 Copilot and Azure AI services.</div>
+      <div class="card-tags"><span class="tag purple">Enterprise</span><span class="tag purple">Microsoft</span><span class="tag">C# / Python</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL PROVIDERS -->
+<section id="model-providers">
+  <div class="section-tag">§ 07 · LLM APIs</div>
+  <h2 class="sec-title">Model Providers & APIs <span class="level level-beginner">Beginner</span></h2>
+  <p class="sec-desc">The companies and APIs that provide access to state-of-the-art foundation models. You call these via REST APIs to use their models.</p>
+
+  <div class="cards">
+    <div class="card" style="--accent:#10a37f">
+      <div class="card-icon">🟢</div>
+      <div class="card-title">OpenAI</div>
+      <div class="card-desc">The market leader. GPT-4o, o1, o3, DALL-E, Whisper, Embeddings, Assistants API, Fine-tuning. The most widely integrated AI API.</div>
+      <div class="card-tags"><span class="tag green">GPT-4o</span><span class="tag green">o3</span><span class="tag">Images</span><span class="tag">Whisper</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">API Example</button>
+      <div class="card-detail">
+        <code><span class="kw">from</span> openai <span class="kw">import</span> OpenAI
+client = <span class="fn">OpenAI</span>(api_key=<span class="str">"sk-..."</span>)
+
+<span class="cm"># Chat completion</span>
+response = client.chat.completions.<span class="fn">create</span>(
+    model=<span class="str">"gpt-4o"</span>,
+    messages=[
+        {<span class="str">"role"</span>: <span class="str">"system"</span>, <span class="str">"content"</span>: <span class="str">"You are helpful."</span>},
+        {<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: <span class="str">"Explain RAG"</span>}
+    ],
+    max_tokens=<span class="num">500</span>
+)
+<span class="fn">print</span>(response.choices[<span class="num">0</span>].message.content)</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#c85a3a">
+      <div class="card-icon">⚡</div>
+      <div class="card-title">Anthropic (Claude)</div>
+      <div class="card-desc">Claude 3.5 Sonnet, Opus, Haiku. Known for safety, long context (200K tokens), coding, analysis, and being the developer of this very platform.</div>
+      <div class="card-tags"><span class="tag orange">Claude 3.5</span><span class="tag orange">200K ctx</span><span class="tag">Safe AI</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">API Example</button>
+      <div class="card-detail">
+        <code><span class="kw">import</span> anthropic
+client = anthropic.<span class="fn">Anthropic</span>(api_key=<span class="str">"..."</span>)
+
+message = client.messages.<span class="fn">create</span>(
+    model=<span class="str">"claude-sonnet-4-6"</span>,
+    max_tokens=<span class="num">1024</span>,
+    messages=[{
+        <span class="str">"role"</span>: <span class="str">"user"</span>,
+        <span class="str">"content"</span>: <span class="str">"Analyze this data..."</span>
+    }]
+)
+<span class="fn">print</span>(message.content[<span class="num">0</span>].text)</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#4285f4">
+      <div class="card-icon">💎</div>
+      <div class="card-title">Google (Gemini)</div>
+      <div class="card-desc">Gemini 1.5 Pro (1M context), Gemini 2.0 Flash. Multimodal — handles text, images, audio, video. Integrated with Google Cloud ecosystem.</div>
+      <div class="card-tags"><span class="tag">Gemini 2.0</span><span class="tag">1M context</span><span class="tag">Multimodal</span></div>
+    </div>
+
+    <div class="card" style="--accent:#7928ca">
+      <div class="card-icon">🌀</div>
+      <div class="card-title">Meta AI (LLaMA)</div>
+      <div class="card-desc">Open-source LLMs (LLaMA 3.1 405B). Run locally or fine-tune. Powers most open-source AI ecosystem. Available via Meta AI and third-party APIs.</div>
+      <div class="card-tags"><span class="tag purple">Open Source</span><span class="tag purple">Fine-tune</span><span class="tag">Local</span></div>
+    </div>
+
+    <div class="card" style="--accent:#ff6b35">
+      <div class="card-icon">🌟</div>
+      <div class="card-title">Mistral AI</div>
+      <div class="card-desc">European AI powerhouse. Mixtral 8x7B MoE model, Mistral Large. Excellent multilingual performance. Open-weight models available.</div>
+      <div class="card-tags"><span class="tag orange">European</span><span class="tag orange">MoE</span><span class="tag">Open Weight</span></div>
+    </div>
+
+    <div class="card" style="--accent:#0ea5e9">
+      <div class="card-icon">🔷</div>
+      <div class="card-title">Cohere</div>
+      <div class="card-desc">Enterprise-focused. Command R+ for RAG, Embed for embeddings. Specializes in retrieval augmentation and enterprise search.</div>
+      <div class="card-tags"><span class="tag">Enterprise</span><span class="tag">Embeddings</span><span class="tag green">RAG Optimized</span></div>
+    </div>
+
+    <div class="card" style="--accent:#facc15">
+      <div class="card-icon">🤗</div>
+      <div class="card-title">Hugging Face Hub</div>
+      <div class="card-desc">The GitHub of AI models. Host and access 400,000+ models. Inference API lets you run any model without setup. Model cards, datasets, Spaces for demos.</div>
+      <div class="card-tags"><span class="tag yellow">400K+ Models</span><span class="tag yellow">Open Source Hub</span></div>
+    </div>
+
+    <div class="card" style="--accent:#6366f1">
+      <div class="card-icon">🛣️</div>
+      <div class="card-title">Together AI / Groq / Fireworks</div>
+      <div class="card-desc">Inference providers for open-source models. Groq uses custom LPU hardware for ultra-fast inference (500+ tokens/sec). Great for cost-effective production.</div>
+      <div class="card-tags"><span class="tag purple">Fast Inference</span><span class="tag purple">Open Models</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RAG -->
+<section id="rag">
+  <div class="section-tag">§ 08 · Advanced GenAI</div>
+  <h2 class="sec-title">RAG — Retrieval-Augmented Generation <span class="level level-intermediate">Intermediate</span></h2>
+  <p class="sec-desc">RAG is the most important pattern in production AI. It lets LLMs answer questions about your private data without fine-tuning.</p>
+
+  <div class="arch-container">
+    <h3>Complete RAG Pipeline</h3>
+    <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:700px">
+      <!-- INDEXING PHASE -->
+      <rect x="10" y="10" width="390" height="130" rx="10" fill="rgba(52,211,153,0.05)" stroke="rgba(52,211,153,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="205" y="30" text-anchor="middle" fill="#34d399" font-size="11" font-family="Space Mono" font-weight="bold">INDEXING PHASE (offline)</text>
+
+      <rect x="25" y="40" width="80" height="50" rx="6" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="65" y="64" text-anchor="middle" fill="#e2e8f0" font-size="18">📄</text>
+      <text x="65" y="80" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Space Mono">Documents</text>
+      <line x1="107" y1="65" x2="128" y2="65" stroke="rgba(52,211,153,0.5)" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <rect x="130" y="40" width="80" height="50" rx="6" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="170" y="64" text-anchor="middle" fill="#e2e8f0" font-size="18">✂️</text>
+      <text x="170" y="80" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Space Mono">Chunk Split</text>
+      <line x1="212" y1="65" x2="233" y2="65" stroke="rgba(52,211,153,0.5)" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <rect x="235" y="40" width="80" height="50" rx="6" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="275" y="64" text-anchor="middle" fill="#e2e8f0" font-size="18">🔢</text>
+      <text x="275" y="80" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Space Mono">Embed</text>
+      <line x1="317" y1="65" x2="338" y2="65" stroke="rgba(52,211,153,0.5)" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <rect x="340" y="40" width="50" height="50" rx="6" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="365" y="68" text-anchor="middle" fill="#34d399" font-size="20">🗄️</text>
+      <text x="365" y="82" text-anchor="middle" fill="#94a3b8" font-size="8" font-family="Space Mono">VecDB</text>
+
+      <!-- Chunk sizes annotation -->
+      <text x="65" y="105" text-anchor="middle" fill="#64748b" font-size="9">PDF/MD/HTML</text>
+      <text x="170" y="105" text-anchor="middle" fill="#64748b" font-size="9">256-1024 tokens</text>
+      <text x="275" y="105" text-anchor="middle" fill="#64748b" font-size="9">ada-002/BGE</text>
+      <text x="365" y="105" text-anchor="middle" fill="#64748b" font-size="9">Pinecone</text>
+
+      <!-- QUERY PHASE -->
+      <rect x="420" y="10" width="430" height="130" rx="10" fill="rgba(167,139,250,0.05)" stroke="rgba(167,139,250,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="635" y="30" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="Space Mono" font-weight="bold">QUERY PHASE (online / per-request)</text>
+
+      <rect x="430" y="40" width="80" height="50" rx="6" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="470" y="62" text-anchor="middle" fill="#e2e8f0" font-size="16">💬</text>
+      <text x="470" y="75" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Space Mono">User Query</text>
+      <text x="470" y="87" text-anchor="middle" fill="#64748b" font-size="8">"What is RAG?"</text>
+      <line x1="512" y1="65" x2="533" y2="65" stroke="rgba(167,139,250,0.5)" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <rect x="535" y="40" width="80" height="50" rx="6" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="575" y="62" text-anchor="middle" fill="#e2e8f0" font-size="16">🔢</text>
+      <text x="575" y="75" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Space Mono">Embed Query</text>
+      <text x="575" y="87" text-anchor="middle" fill="#64748b" font-size="8">→ [0.12, -0.45...]</text>
+      <line x1="617" y1="65" x2="638" y2="65" stroke="rgba(167,139,250,0.5)" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <rect x="640" y="40" width="80" height="50" rx="6" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="680" y="62" text-anchor="middle" fill="#e2e8f0" font-size="16">🔍</text>
+      <text x="680" y="75" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Space Mono">Top-K Search</text>
+      <text x="680" y="87" text-anchor="middle" fill="#64748b" font-size="8">k=3 chunks</text>
+      <line x1="722" y1="65" x2="743" y2="65" stroke="rgba(167,139,250,0.5)" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <rect x="745" y="40" width="90" height="50" rx="6" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="790" y="62" text-anchor="middle" fill="#e2e8f0" font-size="16">🤖</text>
+      <text x="790" y="75" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Space Mono">LLM Generate</text>
+      <text x="790" y="87" text-anchor="middle" fill="#64748b" font-size="8">context+query</text>
+
+      <!-- AUGMENTATION PHASE -->
+      <rect x="130" y="165" width="600" height="120" rx="10" fill="rgba(244,114,182,0.03)" stroke="rgba(244,114,182,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="430" y="183" text-anchor="middle" fill="#f472b6" font-size="11" font-family="Space Mono" font-weight="bold">PROMPT AUGMENTATION</text>
+
+      <rect x="150" y="192" width="560" height="82" rx="6" fill="rgba(0,0,0,0.4)" stroke="rgba(244,114,182,0.3)" stroke-width="1"/>
+      <text x="430" y="212" text-anchor="middle" fill="#64748b" font-size="10" font-family="Fira Code">System: You are a helpful assistant. Answer using ONLY the context below.</text>
+      <text x="430" y="228" text-anchor="middle" fill="#34d399" font-size="10" font-family="Fira Code">Context: [Chunk 1: "RAG stands for..."] [Chunk 2: "...]...</text>
+      <text x="430" y="244" text-anchor="middle" fill="#a78bfa" font-size="10" font-family="Fira Code">Question: What is RAG?</text>
+      <text x="430" y="262" text-anchor="middle" fill="#facc15" font-size="10" font-family="Fira Code">Answer: RAG is a technique that combines retrieval with generation...</text>
+    </svg>
+  </div>
+
+  <div class="two-col" style="margin-top:24px">
+    <div>
+      <div class="info-box green">
+        <h4>✅ When to use RAG</h4>
+        <p>Your data changes frequently · You need citations/sources · Data is too large to fit in context · You want to avoid hallucinations about specific data · Privacy concerns with fine-tuning</p>
+      </div>
+      <div class="info-box orange" style="margin-top:16px">
+        <h4>⚡ Advanced RAG Techniques</h4>
+        <p><strong>HyDE:</strong> Generate hypothetical answer first, then retrieve. <strong>Parent-Child Chunking:</strong> Retrieve small chunks, return parent context. <strong>Reranking:</strong> Use cross-encoder to re-score retrieved docs. <strong>Hybrid Search:</strong> Combine vector + BM25 keyword search.</p>
+      </div>
+    </div>
+    <div class="code-block">
+      <div class="code-header">
+        <span class="code-lang">PYTHON · ADVANCED RAG WITH RERANKING</span>
+        <div class="code-dots"><div class="code-dot" style="background:#ff5f57"></div><div class="code-dot" style="background:#ffbd2e"></div><div class="code-dot" style="background:#28c840"></div></div>
+      </div>
+      <div class="code-body"><span class="kw">from</span> langchain.retrievers <span class="kw">import</span> ContextualCompressionRetriever
+<span class="kw">from</span> langchain.retrievers.document_compressors <span class="kw">import</span> CohereRerank
+
+<span class="cm"># Base retriever: fetch top 20</span>
+base_retriever = vectordb.<span class="fn">as_retriever</span>(
+    search_kwargs={<span class="str">"k"</span>: <span class="num">20</span>}
+)
+
+<span class="cm"># Reranker: pick best 3 using Cohere</span>
+compressor = <span class="fn">CohereRerank</span>(top_n=<span class="num">3</span>)
+retriever = <span class="fn">ContextualCompressionRetriever</span>(
+    base_compressor=compressor,
+    base_retriever=base_retriever
+)
+
+<span class="cm"># Chain with reranked context</span>
+chain = (<span class="fn">RunnableParallel</span>({
+    <span class="str">"context"</span>: retriever,
+    <span class="str">"question"</span>: <span class="fn">RunnablePassthrough</span>()
+}) | prompt | llm | <span class="fn">StrOutputParser</span>())</div>
+    </div>
+  </div>
+</section>
+
+<!-- AI AGENTS -->
+<section id="agents">
+  <div class="section-tag">§ 09 · Agentic AI</div>
+  <h2 class="sec-title">AI Agents & Agentic Systems <span class="level level-advanced">Advanced</span></h2>
+  <p class="sec-desc">Agents are AI systems that can reason, plan, use tools, and take actions autonomously to complete complex multi-step goals.</p>
+
+  <div class="arch-container">
+    <h3>Agent Reasoning Loop (ReAct Pattern)</h3>
+    <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:500px">
+      <!-- Center: LLM Brain -->
+      <circle cx="350" cy="140" r="70" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="2"/>
+      <text x="350" y="125" text-anchor="middle" fill="#a78bfa" font-size="28">🧠</text>
+      <text x="350" y="148" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="bold" font-family="Space Mono">LLM AGENT</text>
+      <text x="350" y="163" text-anchor="middle" fill="#94a3b8" font-size="10">Reason → Act → Observe</text>
+
+      <!-- User Task -->
+      <rect x="270" y="10" width="160" height="44" rx="8" fill="rgba(68,170,255,0.1)" stroke="#4af" stroke-width="1.5"/>
+      <text x="350" y="32" text-anchor="middle" fill="#4af" font-size="11" font-family="Space Mono">🎯 USER TASK</text>
+      <text x="350" y="46" text-anchor="middle" fill="#94a3b8" font-size="9">"Book me a flight to Paris"</text>
+      <line x1="350" y1="54" x2="350" y2="68" stroke="#4af" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <!-- Tools around the agent -->
+      <!-- Web Search -->
+      <rect x="30" y="50" width="130" height="50" rx="8" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="95" y="72" text-anchor="middle" fill="#34d399" font-size="18">🔍</text>
+      <text x="95" y="88" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Space Mono">Web Search</text>
+      <line x1="162" y1="75" x2="278" y2="118" stroke="rgba(52,211,153,0.4)" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+      <!-- Code Interpreter -->
+      <rect x="30" y="180" width="130" height="50" rx="8" fill="rgba(251,146,60,0.1)" stroke="#fb923c" stroke-width="1.5"/>
+      <text x="95" y="200" text-anchor="middle" fill="#fb923c" font-size="18">💻</text>
+      <text x="95" y="216" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Space Mono">Code Interpreter</text>
+      <line x1="162" y1="205" x2="278" y2="165" stroke="rgba(251,146,60,0.4)" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+      <!-- API Tools -->
+      <rect x="540" y="50" width="130" height="50" rx="8" fill="rgba(244,114,182,0.1)" stroke="#f472b6" stroke-width="1.5"/>
+      <text x="605" y="72" text-anchor="middle" fill="#f472b6" font-size="18">🔌</text>
+      <text x="605" y="88" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Space Mono">External APIs</text>
+      <line x1="540" y1="75" x2="422" y2="118" stroke="rgba(244,114,182,0.4)" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+      <!-- File System -->
+      <rect x="540" y="180" width="130" height="50" rx="8" fill="rgba(250,204,21,0.1)" stroke="#facc15" stroke-width="1.5"/>
+      <text x="605" y="200" text-anchor="middle" fill="#facc15" font-size="18">📁</text>
+      <text x="605" y="216" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Space Mono">File System</text>
+      <line x1="540" y1="205" x2="422" y2="165" stroke="rgba(250,204,21,0.4)" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+      <!-- Memory -->
+      <rect x="270" y="230" width="160" height="44" rx="8" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="350" y="250" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="Space Mono">🗃️ MEMORY</text>
+      <text x="350" y="264" text-anchor="middle" fill="#94a3b8" font-size="9">Short-term + Long-term</text>
+      <line x1="350" y1="212" x2="350" y2="228" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3"/>
+    </svg>
+  </div>
+
+  <div class="cards" style="margin-top:24px">
+    <div class="card" style="--accent:#a78bfa">
+      <div class="card-icon">🤖</div>
+      <div class="card-title">Function Calling / Tool Use</div>
+      <div class="card-desc">The core primitive of agents. LLMs can call predefined functions/tools, observe results, and continue reasoning. Supported by all major providers.</div>
+      <div class="card-tags"><span class="tag purple">Core Primitive</span><span class="tag purple">JSON Schema</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+      <div class="card-detail">
+        <code><span class="cm"># Define a tool</span>
+tools = [{
+    <span class="str">"type"</span>: <span class="str">"function"</span>,
+    <span class="str">"function"</span>: {
+        <span class="str">"name"</span>: <span class="str">"get_weather"</span>,
+        <span class="str">"description"</span>: <span class="str">"Get current weather"</span>,
+        <span class="str">"parameters"</span>: {
+            <span class="str">"type"</span>: <span class="str">"object"</span>,
+            <span class="str">"properties"</span>: {
+                <span class="str">"city"</span>: {<span class="str">"type"</span>: <span class="str">"string"</span>}
+            }
+        }
+    }
+}]
+<span class="cm"># LLM decides when to call this</span></code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#4af">
+      <div class="card-icon">🌐</div>
+      <div class="card-title">MCP (Model Context Protocol)</div>
+      <div class="card-desc">Anthropic's open standard for connecting AI agents to external tools, data sources, and services. The "USB-C for AI agents." Growing ecosystem.</div>
+      <div class="card-tags"><span class="tag">Anthropic</span><span class="tag green">Open Standard</span><span class="tag">Universal</span></div>
+    </div>
+
+    <div class="card" style="--accent:#ff6b6b">
+      <div class="card-icon">🔄</div>
+      <div class="card-title">LangGraph</div>
+      <div class="card-desc">Build stateful, multi-actor agent workflows as graphs. Control agent flow with cycles, branches, persistence. Built on LangChain.</div>
+      <div class="card-tags"><span class="tag pink">State Machine</span><span class="tag pink">Multi-Agent</span><span class="tag">LangChain</span></div>
+    </div>
+
+    <div class="card" style="--accent:#22c55e">
+      <div class="card-icon">🌿</div>
+      <div class="card-title">CrewAI</div>
+      <div class="card-desc">Orchestrate AI agents as a "crew." Define roles (researcher, writer, editor), have them collaborate with defined tasks and goals.</div>
+      <div class="card-tags"><span class="tag green">Multi-Agent</span><span class="tag green">Roles</span><span class="tag">Crew</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MLOps -->
+<section id="mlops">
+  <div class="section-tag">§ 10 · Operations</div>
+  <h2 class="sec-title">MLOps — DevOps for AI <span class="level level-intermediate">Intermediate</span></h2>
+  <p class="sec-desc">MLOps brings software engineering discipline to ML: versioning, testing, monitoring, and CI/CD for models. Essential for production AI.</p>
+
+  <div class="arch-container">
+    <h3>MLOps Lifecycle</h3>
+    <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:600px">
+      <!-- Circular arrows around the loop -->
+      <defs>
+        <marker id="arr3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="rgba(68,170,255,0.6)"/>
+        </marker>
+      </defs>
+      
+      <rect x="10" y="60" width="100" height="80" rx="8" fill="rgba(68,170,255,0.1)" stroke="#4af" stroke-width="1.5"/>
+      <text x="60" y="92" text-anchor="middle" fill="#4af" font-size="22">🔬</text>
+      <text x="60" y="110" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Experiment</text>
+      <text x="60" y="124" text-anchor="middle" fill="#94a3b8" font-size="9">MLflow/W&B</text>
+      <line x1="112" y1="100" x2="138" y2="100" stroke="#4af" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+      <rect x="140" y="60" width="100" height="80" rx="8" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="190" y="92" text-anchor="middle" fill="#34d399" font-size="22">📦</text>
+      <text x="190" y="110" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Package</text>
+      <text x="190" y="124" text-anchor="middle" fill="#94a3b8" font-size="9">Docker/Conda</text>
+      <line x1="242" y1="100" x2="268" y2="100" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+      <rect x="270" y="60" width="100" height="80" rx="8" fill="rgba(251,146,60,0.1)" stroke="#fb923c" stroke-width="1.5"/>
+      <text x="320" y="92" text-anchor="middle" fill="#fb923c" font-size="22">✅</text>
+      <text x="320" y="110" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Validate</text>
+      <text x="320" y="124" text-anchor="middle" fill="#94a3b8" font-size="9">DVC/Great Exp.</text>
+      <line x1="372" y1="100" x2="398" y2="100" stroke="#fb923c" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+      <rect x="400" y="60" width="100" height="80" rx="8" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="450" y="92" text-anchor="middle" fill="#a78bfa" font-size="22">🚀</text>
+      <text x="450" y="110" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Deploy</text>
+      <text x="450" y="124" text-anchor="middle" fill="#94a3b8" font-size="9">K8s/SageMaker</text>
+      <line x1="502" y1="100" x2="528" y2="100" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+      <rect x="530" y="60" width="100" height="80" rx="8" fill="rgba(244,114,182,0.1)" stroke="#f472b6" stroke-width="1.5"/>
+      <text x="580" y="92" text-anchor="middle" fill="#f472b6" font-size="22">📊</text>
+      <text x="580" y="110" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="Space Mono">Monitor</text>
+      <text x="580" y="124" text-anchor="middle" fill="#94a3b8" font-size="9">Grafana/Arize</text>
+      <line x1="632" y1="100" x2="658" y2="100" stroke="#f472b6" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+      <rect x="660" y="60" width="50" height="80" rx="8" fill="rgba(250,204,21,0.1)" stroke="#facc15" stroke-width="1.5"/>
+      <text x="685" y="92" text-anchor="middle" fill="#facc15" font-size="22">🔁</text>
+      <text x="685" y="110" text-anchor="middle" fill="#e2e8f0" font-size="9" font-family="Space Mono">Retrain</text>
+
+      <!-- Bottom feedback loop -->
+      <path d="M 685 142 Q 685 175 360 175 Q 35 175 60 142" fill="none" stroke="rgba(250,204,21,0.3)" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr3)"/>
+      <text x="360" y="190" text-anchor="middle" fill="rgba(250,204,21,0.4)" font-size="9" font-family="Space Mono">continuous improvement loop</text>
+    </svg>
+  </div>
+
+  <div class="cards" style="margin-top:24px">
+    <div class="card" style="--accent:#0194e2">
+      <div class="card-icon">📈</div>
+      <div class="card-title">MLflow</div>
+      <div class="card-desc">Open-source ML lifecycle platform. Track experiments, parameters, metrics, and artifacts. Model registry. Works with any framework.</div>
+      <div class="card-tags"><span class="tag">Experiment Tracking</span><span class="tag green">Open Source</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+      <div class="card-detail">
+        <code><span class="kw">import</span> mlflow
+
+<span class="kw">with</span> mlflow.<span class="fn">start_run</span>():
+    <span class="cm"># Log parameters</span>
+    mlflow.<span class="fn">log_param</span>(<span class="str">"learning_rate"</span>, <span class="num">0.01</span>)
+    mlflow.<span class="fn">log_param</span>(<span class="str">"batch_size"</span>, <span class="num">32</span>)
+    
+    <span class="cm"># Train model...</span>
+    
+    <span class="cm"># Log metrics</span>
+    mlflow.<span class="fn">log_metric</span>(<span class="str">"accuracy"</span>, <span class="num">0.94</span>)
+    mlflow.<span class="fn">log_metric</span>(<span class="str">"f1_score"</span>, <span class="num">0.92</span>)
+    
+    <span class="cm"># Log model</span>
+    mlflow.sklearn.<span class="fn">log_model</span>(model, <span class="str">"model"</span>)</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#ffcc00">
+      <div class="card-icon">🐝</div>
+      <div class="card-title">Weights & Biases (W&B)</div>
+      <div class="card-desc">The preferred experiment tracking tool in deep learning. Beautiful visualizations, model versioning, dataset versioning, hyperparameter sweeps.</div>
+      <div class="card-tags"><span class="tag yellow">Industry Standard</span><span class="tag yellow">Sweeps</span></div>
+    </div>
+
+    <div class="card" style="--accent:#2496ed">
+      <div class="card-icon">🐳</div>
+      <div class="card-title">Docker</div>
+      <div class="card-desc">Package ML code + dependencies into containers. Reproducible environments, deploy anywhere. Essential skill for every ML engineer.</div>
+      <div class="card-tags"><span class="tag">Containers</span><span class="tag green">Reproducible</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Dockerfile Example</button>
+      <div class="card-detail">
+        <code><span class="cm"># Dockerfile for ML service</span>
+<span class="kw">FROM</span> python:<span class="num">3.11</span>-slim
+
+<span class="kw">WORKDIR</span> /app
+<span class="kw">COPY</span> requirements.txt .
+<span class="kw">RUN</span> pip install -r requirements.txt
+
+<span class="kw">COPY</span> model/ ./model/
+<span class="kw">COPY</span> app.py .
+
+<span class="kw">EXPOSE</span> <span class="num">8000</span>
+<span class="kw">CMD</span> [<span class="str">"uvicorn"</span>, <span class="str">"app:app"</span>, <span class="str">"--host"</span>, <span class="str">"0.0.0.0"</span>]</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#326de6">
+      <div class="card-icon">⚓</div>
+      <div class="card-title">Kubernetes (K8s)</div>
+      <div class="card-desc">Container orchestration at scale. Auto-scaling ML endpoints, rolling deployments, GPU scheduling. The backbone of production AI infrastructure.</div>
+      <div class="card-tags"><span class="tag">Orchestration</span><span class="tag">Auto-Scale</span><span class="tag">GPU Sched.</span></div>
+    </div>
+
+    <div class="card" style="--accent:#ff6d00">
+      <div class="card-icon">🌊</div>
+      <div class="card-title">Apache Airflow</div>
+      <div class="card-desc">Schedule and monitor ML pipelines as DAGs. Trigger retraining, data ingestion, feature computation on schedule or on events.</div>
+      <div class="card-tags"><span class="tag orange">Orchestration</span><span class="tag orange">Scheduling</span><span class="tag">DAG</span></div>
+    </div>
+
+    <div class="card" style="--accent:#00c4b0">
+      <div class="card-icon">📊</div>
+      <div class="card-title">DVC (Data Version Control)</div>
+      <div class="card-desc">Git for data and models. Version large datasets and model files alongside code. Reproduce any experiment from any point in time.</div>
+      <div class="card-tags"><span class="tag green">Data Versioning</span><span class="tag green">Reproducibility</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOUD -->
+<section id="cloud">
+  <div class="section-tag">§ 11 · Cloud</div>
+  <h2 class="sec-title">Cloud Platforms <span class="level level-intermediate">Intermediate</span></h2>
+  <p class="sec-desc">The major cloud providers offer compute, storage, managed ML services, and AI APIs. Most production AI runs on one of these three.</p>
+
+  <div class="three-col">
+    <div class="card" style="--accent:#ff9900">
+      <div class="card-icon">☁️</div>
+      <div class="card-title">Amazon Web Services</div>
+      <div class="card-desc">Market leader (33% share). Most mature AI/ML services.</div>
+      <div class="card-tags"><span class="tag orange">Market Leader</span><span class="tag">33% share</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">AI Services</button>
+      <div class="card-detail">
+        <h4>Key AI/ML Services</h4>
+        <p><strong>SageMaker:</strong> End-to-end ML platform (train, tune, deploy). <strong>Bedrock:</strong> Managed LLM APIs (Claude, Titan, Llama). <strong>Rekognition:</strong> Image/video analysis. <strong>Comprehend:</strong> NLP. <strong>Transcribe:</strong> Speech-to-text. <strong>Polly:</strong> Text-to-speech. <strong>Forecast:</strong> Time series. <strong>Personalize:</strong> Recommendations.</p>
+      </div>
+    </div>
+    <div class="card" style="--accent:#4285f4">
+      <div class="card-icon">🌐</div>
+      <div class="card-title">Google Cloud Platform</div>
+      <div class="card-desc">Google's cloud with best-in-class AI services. TPUs for training, Vertex AI, Gemini integration.</div>
+      <div class="card-tags"><span class="tag">TPUs</span><span class="tag">Vertex AI</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">AI Services</button>
+      <div class="card-detail">
+        <h4>Key AI/ML Services</h4>
+        <p><strong>Vertex AI:</strong> Unified ML platform. <strong>Gemini API:</strong> Access to Gemini models. <strong>AutoML:</strong> No-code model training. <strong>Cloud Vision:</strong> Image analysis. <strong>Natural Language:</strong> Text analysis. <strong>Cloud Speech:</strong> Audio processing. <strong>BigQuery ML:</strong> ML inside SQL queries. <strong>Cloud TPU:</strong> Custom AI accelerators.</p>
+      </div>
+    </div>
+    <div class="card" style="--accent:#0078d4">
+      <div class="card-icon">🔷</div>
+      <div class="card-title">Microsoft Azure</div>
+      <div class="card-desc">Deep OpenAI integration. Azure OpenAI gives enterprise access to GPT-4, DALL-E. Strong enterprise security.</div>
+      <div class="card-tags"><span class="tag">Azure OpenAI</span><span class="tag">Enterprise</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">AI Services</button>
+      <div class="card-detail">
+        <h4>Key AI/ML Services</h4>
+        <p><strong>Azure OpenAI:</strong> GPT-4, DALL-E, Embeddings with enterprise SLA. <strong>Azure ML:</strong> End-to-end ML platform. <strong>Cognitive Services:</strong> Vision, Speech, Language, Decision APIs. <strong>Azure AI Studio:</strong> Build/deploy generative AI apps. <strong>Azure AI Search:</strong> Semantic + vector search.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box" style="margin-top:24px">
+    <h4>💡 Cloud AI Service Quick Guide</h4>
+    <p><strong>Best for LLMs:</strong> AWS Bedrock (multi-model) / Azure OpenAI (GPT-4) / GCP Vertex AI (Gemini) &nbsp;|&nbsp; <strong>Best GPU training:</strong> AWS p4d (A100) / GCP TPU v5 / Azure NDv4 &nbsp;|&nbsp; <strong>Best managed ML:</strong> AWS SageMaker / GCP Vertex &nbsp;|&nbsp; <strong>Best for startup:</strong> GCP (generous free tier) &nbsp;|&nbsp; <strong>Best for enterprise:</strong> Azure (compliance/security)</p>
+  </div>
+</section>
+
+<!-- HARDWARE -->
+<section id="hardware">
+  <div class="section-tag">§ 12 · Infrastructure</div>
+  <h2 class="sec-title">Hardware & Infrastructure <span class="level level-advanced">Advanced</span></h2>
+  <p class="sec-desc">AI is hardware-constrained. Understanding the compute stack — from GPUs to distributed training — is essential for serious AI work.</p>
+
+  <div class="cards">
+    <div class="card" style="--accent:#76b900">
+      <div class="card-icon">🎮</div>
+      <div class="card-title">NVIDIA GPUs + CUDA</div>
+      <div class="card-desc">The AI hardware standard. CUDA ecosystem, cuDNN, Tensor Cores for matrix multiply. A100/H100 power every major LLM. CUDA is essentially mandatory for deep learning.</div>
+      <div class="card-tags"><span class="tag green">A100 / H100</span><span class="tag green">CUDA</span><span class="tag">Tensor Cores</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">GPU Specs</button>
+      <div class="card-detail">
+        <h4>GPU Hierarchy for AI</h4>
+        <p><strong>H100 SXM5:</strong> 80GB HBM3, 3.35TB/s, flagship for LLM training. <strong>A100:</strong> 80GB HBM2e, standard for large-scale training. <strong>RTX 4090:</strong> 24GB GDDR6X, best consumer GPU for fine-tuning. <strong>T4:</strong> 16GB, cost-effective inference in cloud.</p>
+        <h4>Key Concepts</h4>
+        <p><strong>VRAM:</strong> determines max model size. <strong>FLOPS:</strong> compute capacity. <strong>Memory Bandwidth:</strong> limits inference speed. <strong>NVLink:</strong> multi-GPU interconnect.</p>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#4285f4">
+      <div class="card-icon">⚡</div>
+      <div class="card-title">Google TPUs</div>
+      <div class="card-desc">Tensor Processing Units — Google's custom AI chips. 2-5x faster than A100 for certain workloads. Power Gemini training. Available on GCP.</div>
+      <div class="card-tags"><span class="tag">Custom ASIC</span><span class="tag">Google</span><span class="tag purple">Training</span></div>
+    </div>
+
+    <div class="card" style="--accent:#0072c6">
+      <div class="card-icon">🔷</div>
+      <div class="card-title">AMD ROCm</div>
+      <div class="card-desc">NVIDIA alternative. MI300X GPU with 192GB HBM3. ROCm is the open-source CUDA competitor. PyTorch/TF support is growing rapidly.</div>
+      <div class="card-tags"><span class="tag">Alternative GPU</span><span class="tag">192GB VRAM</span></div>
+    </div>
+
+    <div class="card" style="--accent:#00a67e">
+      <div class="card-icon">🧩</div>
+      <div class="card-title">Distributed Training</div>
+      <div class="card-desc">LLMs are too large for one GPU. Techniques: Data Parallelism (copy model, split data), Tensor Parallelism (split model), Pipeline Parallelism (split layers).</div>
+      <div class="card-tags"><span class="tag green">DeepSpeed</span><span class="tag green">FSDP</span><span class="tag">Megatron-LM</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+      <div class="card-detail">
+        <h4>Parallelism Strategies</h4>
+        <p><strong>Data Parallel (DDP):</strong> Each GPU has full model, different data batches. <strong>Tensor Parallel:</strong> Split weight matrices across GPUs (Megatron-style). <strong>Pipeline Parallel:</strong> Different layers on different GPUs. <strong>3D Parallel:</strong> Combine all three — used for GPT-3 scale training.</p>
+        <h4>Tools</h4>
+        <p>DeepSpeed (Microsoft, ZeRO optimization), PyTorch FSDP, Accelerate (HuggingFace), Megatron-LM (NVIDIA)</p>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#f59e0b">
+      <div class="card-icon">📱</div>
+      <div class="card-title">Edge AI & Inference Optimization</div>
+      <div class="card-desc">Deploy AI on devices with limited compute. Quantization (INT4/INT8), Pruning, Distillation, ONNX export, TFLite, Core ML for Apple.</div>
+      <div class="card-tags"><span class="tag yellow">Quantization</span><span class="tag yellow">Mobile</span><span class="tag">ONNX</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+      <div class="card-detail">
+        <h4>Model Compression Techniques</h4>
+        <p><strong>Quantization:</strong> Reduce weight precision from FP32 → INT8 → INT4. 4x smaller, 2-4x faster with minimal accuracy loss. GPTQ, AWQ for LLMs. <strong>Pruning:</strong> Remove unimportant weights. <strong>Distillation:</strong> Train small student model to mimic large teacher. <strong>GGUF/llama.cpp:</strong> Run LLMs on CPU efficiently.</p>
+        <code><span class="cm"># Quantize with bitsandbytes</span>
+<span class="kw">from</span> transformers <span class="kw">import</span> AutoModelForCausalLM, BitsAndBytesConfig
+
+quant_config = <span class="fn">BitsAndBytesConfig</span>(
+    load_in_4bit=<span class="kw">True</span>,
+    bnb_4bit_compute_dtype=torch.float16
+)
+model = AutoModelForCausalLM.<span class="fn">from_pretrained</span>(
+    <span class="str">"meta-llama/Meta-Llama-3-8B"</span>,
+    quantization_config=quant_config
+) <span class="cm"># ~4GB vs 16GB at full precision</span></code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#e879f9">
+      <div class="card-icon">🔧</div>
+      <div class="card-title">Fine-tuning & PEFT</div>
+      <div class="card-desc">Adapt pretrained models to your domain with small labeled datasets. LoRA/QLoRA are the most efficient fine-tuning techniques — train &lt;1% of parameters.</div>
+      <div class="card-tags"><span class="tag pink">LoRA</span><span class="tag pink">QLoRA</span><span class="tag">PEFT</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Deep Dive</button>
+      <div class="card-detail">
+        <h4>LoRA (Low-Rank Adaptation)</h4>
+        <p>Instead of updating all weights, LoRA injects trainable rank-decomposition matrices: W' = W + A×B where A∈R^(d×r), B∈R^(r×k), r ≪ d. Reduces trainable params by 10,000x.</p>
+        <code><span class="kw">from</span> peft <span class="kw">import</span> get_peft_model, LoraConfig
+
+config = <span class="fn">LoraConfig</span>(
+    r=<span class="num">16</span>,  <span class="cm"># rank</span>
+    lora_alpha=<span class="num">32</span>,
+    target_modules=[<span class="str">"q_proj"</span>, <span class="str">"v_proj"</span>],
+    lora_dropout=<span class="num">0.1</span>,
+    task_type=<span class="str">"CAUSAL_LM"</span>
+)
+model = <span class="fn">get_peft_model</span>(base_model, config)
+model.<span class="fn">print_trainable_parameters</span>()
+<span class="cm"># trainable: 4M / total: 7B (0.06%)</span></code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISUALIZATION -->
+<section id="visualization">
+  <div class="section-tag">§ 13 · Visualization</div>
+  <h2 class="sec-title">Data Visualization Tools <span class="level level-beginner">Beginner</span></h2>
+  <p class="sec-desc">Turning data into insight. From quick Python plots to enterprise dashboards — visualizing data is a core skill for any AI/data practitioner.</p>
+
+  <div class="cards">
+    <div class="card" style="--accent:#e97627">
+      <div class="card-icon">📊</div>
+      <div class="card-title">Tableau</div>
+      <div class="card-desc">Industry-leading BI tool. Drag-and-drop dashboards, connects to any data source. Standard in enterprise analytics teams.</div>
+      <div class="card-tags"><span class="tag orange">Enterprise BI</span><span class="tag orange">No-Code</span><span class="tag">Drag-Drop</span></div>
+    </div>
+    <div class="card" style="--accent:#f2c80f">
+      <div class="card-icon">📈</div>
+      <div class="card-title">Microsoft Power BI</div>
+      <div class="card-desc">Microsoft's BI tool. Deep Excel/Azure integration. AI-powered insights, natural language queries, great for Microsoft organizations.</div>
+      <div class="card-tags"><span class="tag yellow">Microsoft</span><span class="tag yellow">AI Insights</span><span class="tag">Azure</span></div>
+    </div>
+    <div class="card" style="--accent:#11557c">
+      <div class="card-icon">🎨</div>
+      <div class="card-title">Matplotlib</div>
+      <div class="card-desc">The foundational Python plotting library. Everything builds on it. Fine-grained control over every plot element. Essential for custom scientific figures.</div>
+      <div class="card-tags"><span class="tag">Foundation</span><span class="tag green">Python</span><span class="tag">Customizable</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Code Examples</button>
+      <div class="card-detail">
+        <code><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+fig, axes = plt.<span class="fn">subplots</span>(<span class="num">1</span>, <span class="num">3</span>, figsize=(<span class="num">15</span>, <span class="num">4</span>))
+
+<span class="cm"># Loss curves</span>
+axes[<span class="num">0</span>].<span class="fn">plot</span>(train_loss, label=<span class="str">'train'</span>)
+axes[<span class="num">0</span>].<span class="fn">plot</span>(val_loss, label=<span class="str">'val'</span>)
+axes[<span class="num">0</span>].<span class="fn">set_title</span>(<span class="str">'Training Loss'</span>)
+
+<span class="cm"># Confusion matrix</span>
+axes[<span class="num">1</span>].<span class="fn">imshow</span>(cm, cmap=<span class="str">'Blues'</span>)
+<span class="cm"># Feature importance</span>
+axes[<span class="num">2</span>].<span class="fn">barh</span>(features, importances)
+plt.<span class="fn">tight_layout</span>()
+plt.<span class="fn">show</span>()</code>
+      </div>
+    </div>
+    <div class="card" style="--accent:#4c72b0">
+      <div class="card-icon">🌊</div>
+      <div class="card-title">Seaborn</div>
+      <div class="card-desc">Statistical visualization on top of Matplotlib. Beautiful defaults, easy correlation plots, distribution analysis. Great for EDA.</div>
+      <div class="card-tags"><span class="tag">Statistical</span><span class="tag green">Beautiful</span><span class="tag">EDA</span></div>
+    </div>
+    <div class="card" style="--accent:#3f4f75">
+      <div class="card-icon">📉</div>
+      <div class="card-title">Plotly / Plotly Dash</div>
+      <div class="card-desc">Interactive charts in Python. Zoom, hover, pan. Dash turns Plotly into full web analytics apps without JavaScript knowledge.</div>
+      <div class="card-tags"><span class="tag purple">Interactive</span><span class="tag purple">Web Apps</span><span class="tag">Dashboard</span></div>
+    </div>
+    <div class="card" style="--accent:#f7931e">
+      <div class="card-icon">🌐</div>
+      <div class="card-title">D3.js</div>
+      <div class="card-desc">The most powerful web visualization library. Create any custom visualization — force graphs, maps, animations. Steep learning curve, maximum flexibility.</div>
+      <div class="card-tags"><span class="tag orange">JavaScript</span><span class="tag orange">Custom Viz</span><span class="tag">SVG</span></div>
+    </div>
+    <div class="card" style="--accent:#9b59b6">
+      <div class="card-icon">🔥</div>
+      <div class="card-title">Weights & Biases Charts</div>
+      <div class="card-desc">Real-time training visualization. Loss curves, confusion matrices, model predictions, dataset exploration — all logged automatically during training.</div>
+      <div class="card-tags"><span class="tag pink">ML Specific</span><span class="tag pink">Real-time</span></div>
+    </div>
+    <div class="card" style="--accent:#1abc9c">
+      <div class="card-icon">📊</div>
+      <div class="card-title">Grafana + Prometheus</div>
+      <div class="card-desc">Monitor your deployed AI systems. Track request latency, error rates, prediction drift, resource usage in production dashboards.</div>
+      <div class="card-tags"><span class="tag green">Production</span><span class="tag green">Monitoring</span><span class="tag">Metrics</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FRONTEND -->
+<section id="frontend">
+  <div class="section-tag">§ 14 · Applications</div>
+  <h2 class="sec-title">Frontend & API Frameworks <span class="level level-beginner">Beginner→</span></h2>
+  <p class="sec-desc">Build the interfaces and APIs that put your AI models in front of users — from quick demos to production web applications.</p>
+
+  <div class="cards">
+    <div class="card" style="--accent:#61dafb">
+      <div class="card-icon">⚛️</div>
+      <div class="card-title">React / Next.js</div>
+      <div class="card-desc">Build production AI web applications. Vercel AI SDK makes streaming LLM responses easy. Used for most serious AI product frontends.</div>
+      <div class="card-tags"><span class="tag">Web Apps</span><span class="tag">SSR</span><span class="tag green">Production</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">AI Chat Component</button>
+      <div class="card-detail">
+        <code><span class="cm">// Next.js + Vercel AI SDK streaming</span>
+<span class="kw">import</span> { useChat } <span class="kw">from</span> <span class="str">'ai/react'</span>;
+
+<span class="kw">export default function</span> <span class="fn">Chat</span>() {
+  <span class="kw">const</span> { messages, input, handleSubmit, 
+          handleInputChange } = <span class="fn">useChat</span>();
+  <span class="kw">return</span> (
+    &lt;div&gt;
+      {messages.<span class="fn">map</span>(m =&gt; &lt;p key={m.id}&gt;{m.content}&lt;/p&gt;)}
+      &lt;form onSubmit={handleSubmit}&gt;
+        &lt;input value={input} onChange={handleInputChange}/&gt;
+        &lt;button&gt;Send&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  );
+}</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#ff4b4b">
+      <div class="card-icon">🌊</div>
+      <div class="card-title">Streamlit</div>
+      <div class="card-desc">Turn Python scripts into web apps in minutes. No frontend knowledge needed. The go-to tool for data scientists to demo ML models.</div>
+      <div class="card-tags"><span class="tag pink">Python Only</span><span class="tag pink">Rapid Proto</span><span class="tag">Demo</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">ML App Example</button>
+      <div class="card-detail">
+        <code><span class="kw">import</span> streamlit <span class="kw">as</span> st
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+st.<span class="fn">title</span>(<span class="str">"🤖 AI Sentiment Analyzer"</span>)
+
+uploaded = st.<span class="fn">file_uploader</span>(<span class="str">"Upload CSV"</span>)
+<span class="kw">if</span> uploaded:
+    df = pd.<span class="fn">read_csv</span>(uploaded)
+    
+    <span class="kw">with</span> st.<span class="fn">spinner</span>(<span class="str">"Analyzing..."</span>):
+        results = <span class="fn">analyze_sentiment</span>(df)
+    
+    st.<span class="fn">dataframe</span>(results)
+    st.<span class="fn">bar_chart</span>(results[<span class="str">'sentiment'</span>].<span class="fn">value_counts</span>())</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#f97316">
+      <div class="card-icon">🎨</div>
+      <div class="card-title">Gradio</div>
+      <div class="card-desc">Build ML demos with interactive UI components. Upload images, text areas, audio inputs. Share via Hugging Face Spaces in one click.</div>
+      <div class="card-tags"><span class="tag orange">HuggingFace</span><span class="tag orange">Spaces</span><span class="tag">Demo UI</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">Image Classification Demo</button>
+      <div class="card-detail">
+        <code><span class="kw">import</span> gradio <span class="kw">as</span> gr
+<span class="kw">from</span> transformers <span class="kw">import</span> pipeline
+
+classifier = <span class="fn">pipeline</span>(<span class="str">"image-classification"</span>)
+
+<span class="kw">def</span> <span class="fn">classify</span>(image):
+    results = <span class="fn">classifier</span>(image)
+    <span class="kw">return</span> {r[<span class="str">'label'</span>]: r[<span class="str">'score'</span>] <span class="kw">for</span> r <span class="kw">in</span> results}
+
+demo = gr.<span class="fn">Interface</span>(
+    fn=classify,
+    inputs=gr.<span class="fn">Image</span>(),
+    outputs=gr.<span class="fn">Label</span>()
+)
+demo.<span class="fn">launch</span>(share=<span class="kw">True</span>)  <span class="cm"># public URL!</span></code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#009688">
+      <div class="card-icon">⚡</div>
+      <div class="card-title">FastAPI</div>
+      <div class="card-desc">The fastest way to build AI APIs in Python. Async, automatic OpenAPI docs, Pydantic validation. Standard for serving ML models in production.</div>
+      <div class="card-tags"><span class="tag green">Production API</span><span class="tag green">Async</span><span class="tag">OpenAPI</span></div>
+      <button class="expand-btn" onclick="toggleCard(this)">ML Inference API</button>
+      <div class="card-detail">
+        <code><span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI
+<span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel
+
+app = <span class="fn">FastAPI</span>(title=<span class="str">"AI Prediction API"</span>)
+
+<span class="kw">class</span> <span class="cls">Request</span>(BaseModel):
+    text: str
+
+<span class="cls">@app.post</span>(<span class="str">"/predict"</span>)
+<span class="kw">async def</span> <span class="fn">predict</span>(req: Request):
+    embedding = <span class="fn">embed</span>(req.text)
+    score = model.<span class="fn">predict</span>(embedding)
+    <span class="kw">return</span> {<span class="str">"score"</span>: <span class="fn">float</span>(score), 
+            <span class="str">"label"</span>: <span class="str">"positive"</span> <span class="kw">if</span> score &gt; <span class="num">0.5</span> <span class="kw">else</span> <span class="str">"negative"</span>}</code>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#ee0979">
+      <div class="card-icon">🔴</div>
+      <div class="card-title">Flask</div>
+      <div class="card-desc">Lightweight Python web framework. Flexible, minimal, great for simple model serving endpoints and quick web UIs for AI demos.</div>
+      <div class="card-tags"><span class="tag pink">Lightweight</span><span class="tag pink">Flexible</span><span class="tag">Simple</span></div>
+    </div>
+
+    <div class="card" style="--accent:#09f">
+      <div class="card-icon">📡</div>
+      <div class="card-title">WebSockets + SSE</div>
+      <div class="card-desc">Real-time streaming for AI applications. Server-Sent Events stream LLM tokens to users. WebSockets for bidirectional AI chat experiences.</div>
+      <div class="card-tags"><span class="tag">Streaming</span><span class="tag">Real-time</span><span class="tag">Chat UI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANCED TOPICS -->
+<section id="advanced">
+  <div class="section-tag">§ 15 · Deep Dive</div>
+  <h2 class="sec-title">Advanced Topics <span class="level level-advanced">Advanced</span></h2>
+  <p class="sec-desc">The cutting edge — techniques and concepts used to build state-of-the-art AI systems.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(this,'arch-tab')">Model Architecture</button>
+    <button class="tab-btn" onclick="switchTab(this,'training-tab')">Training Techniques</button>
+    <button class="tab-btn" onclick="switchTab(this,'safety-tab')">AI Safety & Alignment</button>
+    <button class="tab-btn" onclick="switchTab(this,'multimodal-tab')">Multimodal AI</button>
+  </div>
+
+  <div id="arch-tab" class="tab-panel active">
+    <div class="highlight-box">
+      <h3 style="font-size:16px;margin-bottom:20px;color:var(--neon2)">🔬 Transformer Architecture — The Foundation of Everything</h3>
+      <div class="arch-container" style="margin:0">
+        <svg viewBox="0 0 740 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:600px">
+          <!-- Input Tokens -->
+          <rect x="10" y="290" width="80" height="36" rx="6" fill="rgba(68,170,255,0.1)" stroke="#4af" stroke-width="1.5"/>
+          <text x="50" y="312" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Space Mono">"The"</text>
+          <rect x="100" y="290" width="80" height="36" rx="6" fill="rgba(68,170,255,0.1)" stroke="#4af" stroke-width="1.5"/>
+          <text x="140" y="312" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Space Mono">"cat"</text>
+          <rect x="190" y="290" width="80" height="36" rx="6" fill="rgba(68,170,255,0.1)" stroke="#4af" stroke-width="1.5"/>
+          <text x="230" y="312" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Space Mono">"sat"</text>
+          <text x="120" y="340" text-anchor="middle" fill="#4af" font-size="10" font-family="Space Mono">Input Tokens</text>
+
+          <!-- Token + Pos Embedding -->
+          <rect x="10" y="230" width="260" height="44" rx="8" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+          <text x="140" y="251" text-anchor="middle" fill="#34d399" font-size="11" font-family="Space Mono">Token Embeddings</text>
+          <text x="140" y="266" text-anchor="middle" fill="#64748b" font-size="10">+ Positional Encoding</text>
+          <line x1="140" y1="274" x2="140" y2="290" stroke="rgba(52,211,153,0.4)" stroke-width="1.5"/>
+
+          <!-- N× Transformer Blocks -->
+          <rect x="10" y="50" width="260" height="170" rx="10" fill="rgba(167,139,250,0.05)" stroke="rgba(167,139,250,0.4)" stroke-width="1.5"/>
+          <text x="20" y="70" fill="#a78bfa" font-size="10" font-family="Space Mono">N× Transformer Block</text>
+
+          <!-- Multi-Head Attention -->
+          <rect x="20" y="78" width="240" height="54" rx="6" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>
+          <text x="140" y="100" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="bold" font-family="Space Mono">Multi-Head Attention</text>
+          <text x="140" y="116" text-anchor="middle" fill="#64748b" font-size="10">Q · K^T / √d_k → Softmax → × V</text>
+          <text x="140" y="130" text-anchor="middle" fill="#64748b" font-size="9">h=8..96 heads · d_model=512..12288</text>
+
+          <!-- Add&Norm -->
+          <rect x="20" y="138" width="240" height="20" rx="4" fill="rgba(250,204,21,0.08)" stroke="rgba(250,204,21,0.3)" stroke-width="1"/>
+          <text x="140" y="152" text-anchor="middle" fill="#facc15" font-size="10" font-family="Space Mono">Add & LayerNorm (Residual)</text>
+
+          <!-- FFN -->
+          <rect x="20" y="164" width="240" height="38" rx="6" fill="rgba(244,114,182,0.1)" stroke="#f472b6" stroke-width="1.5"/>
+          <text x="140" y="182" text-anchor="middle" fill="#f472b6" font-size="11" font-weight="bold" font-family="Space Mono">Feed-Forward Network</text>
+          <text x="140" y="196" text-anchor="middle" fill="#64748b" font-size="10">Linear → ReLU/GeLU → Linear</text>
+
+          <line x1="140" y1="220" x2="140" y2="228" stroke="rgba(167,139,250,0.4)" stroke-width="1.5"/>
+          <line x1="140" y1="44" x2="140" y2="50" stroke="rgba(167,139,250,0.4)" stroke-width="1.5"/>
+
+          <!-- Output -->
+          <rect x="10" y="10" width="260" height="32" rx="8" fill="rgba(251,146,60,0.1)" stroke="#fb923c" stroke-width="1.5"/>
+          <text x="140" y="28" text-anchor="middle" fill="#fb923c" font-size="11" font-family="Space Mono">Linear + Softmax → Next Token</text>
+
+          <!-- RIGHT SIDE: Attention Explanation -->
+          <rect x="310" y="10" width="420" height="320" rx="10" fill="rgba(10,10,20,0.6)" stroke="rgba(100,100,180,0.2)" stroke-width="1"/>
+          <text x="520" y="35" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="bold" font-family="Space Mono">How Attention Works</text>
+
+          <!-- Q, K, V explanation -->
+          <rect x="320" y="50" width="120" height="60" rx="6" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>
+          <text x="380" y="72" text-anchor="middle" fill="#a78bfa" font-size="20">Q</text>
+          <text x="380" y="90" text-anchor="middle" fill="#94a3b8" font-size="10">Query: "What</text>
+          <text x="380" y="102" text-anchor="middle" fill="#94a3b8" font-size="10">am I looking for?"</text>
+
+          <rect x="450" y="50" width="120" height="60" rx="6" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>
+          <text x="510" y="72" text-anchor="middle" fill="#34d399" font-size="20">K</text>
+          <text x="510" y="90" text-anchor="middle" fill="#94a3b8" font-size="10">Key: "What</text>
+          <text x="510" y="102" text-anchor="middle" fill="#94a3b8" font-size="10">info do I have?"</text>
+
+          <rect x="580" y="50" width="120" height="60" rx="6" fill="rgba(244,114,182,0.1)" stroke="#f472b6" stroke-width="1.5"/>
+          <text x="640" y="72" text-anchor="middle" fill="#f472b6" font-size="20">V</text>
+          <text x="640" y="90" text-anchor="middle" fill="#94a3b8" font-size="10">Value: "What</text>
+          <text x="640" y="102" text-anchor="middle" fill="#94a3b8" font-size="10">to return?"</text>
+
+          <!-- Attention scores visualization -->
+          <text x="520" y="140" text-anchor="middle" fill="#64748b" font-size="11" font-family="Space Mono">Attention Matrix (The · cat · sat)</text>
+          <!-- Grid -->
+          <rect x="410" y="148" width="50" height="50" rx="3" fill="rgba(167,139,250,0.8)" stroke="rgba(167,139,250,0.5)" stroke-width="1"/>
+          <rect x="462" y="148" width="50" height="50" rx="3" fill="rgba(167,139,250,0.3)" stroke="rgba(167,139,250,0.3)" stroke-width="1"/>
+          <rect x="514" y="148" width="50" height="50" rx="3" fill="rgba(167,139,250,0.1)" stroke="rgba(167,139,250,0.2)" stroke-width="1"/>
+          <rect x="410" y="200" width="50" height="50" rx="3" fill="rgba(167,139,250,0.4)" stroke="rgba(167,139,250,0.3)" stroke-width="1"/>
+          <rect x="462" y="200" width="50" height="50" rx="3" fill="rgba(167,139,250,0.8)" stroke="rgba(167,139,250,0.5)" stroke-width="1"/>
+          <rect x="514" y="200" width="50" height="50" rx="3" fill="rgba(167,139,250,0.2)" stroke="rgba(167,139,250,0.2)" stroke-width="1"/>
+          <rect x="410" y="252" width="50" height="50" rx="3" fill="rgba(167,139,250,0.2)" stroke="rgba(167,139,250,0.2)" stroke-width="1"/>
+          <rect x="462" y="252" width="50" height="50" rx="3" fill="rgba(167,139,250,0.5)" stroke="rgba(167,139,250,0.3)" stroke-width="1"/>
+          <rect x="514" y="252" width="50" height="50" rx="3" fill="rgba(167,139,250,0.9)" stroke="rgba(167,139,250,0.5)" stroke-width="1"/>
+          <!-- Labels -->
+          <text x="435" y="178" text-anchor="middle" fill="#e2e8f0" font-size="9" font-family="Fira Code">0.7</text>
+          <text x="487" y="178" text-anchor="middle" fill="#e2e8f0" font-size="9" font-family="Fira Code">0.2</text>
+          <text x="539" y="178" text-anchor="middle" fill="#e2e8f0" font-size="9" font-family="Fira Code">0.1</text>
+          <text x="435" y="230" text-anchor="middle" fill="#e2e8f0" font-size="9" font-family="Fira Code">0.3</text>
+          <text x="487" y="230" text-anchor="middle" fill="#e2e8f0" font-size="9" font-family="Fira Code">0.6</text>
+          <text x="539" y="230" text-anchor="middle" fill="#e2e8f0" font-size="9" font-family="Fira Code">0.1</text>
+          <text x="435" y="282" text-anchor="middle" fill="#e2e8f0" font-size="9" font-family="Fira Code">0.1</text>
+          <text x="487" y="282" text-anchor="middle" fill="#e2e8f0" font-size="9" font-family="Fira Code">0.3</text>
+          <text x="539" y="282" text-anchor="middle" fill="#e2e8f0" font-size="9" font-family="Fira Code">0.6</text>
+          <!-- Row labels -->
+          <text x="400" y="178" text-anchor="end" fill="#4af" font-size="9" font-family="Fira Code">The</text>
+          <text x="400" y="230" text-anchor="end" fill="#4af" font-size="9" font-family="Fira Code">cat</text>
+          <text x="400" y="282" text-anchor="end" fill="#4af" font-size="9" font-family="Fira Code">sat</text>
+          <!-- Col labels -->
+          <text x="435" y="143" text-anchor="middle" fill="#34d399" font-size="9" font-family="Fira Code">The</text>
+          <text x="487" y="143" text-anchor="middle" fill="#34d399" font-size="9" font-family="Fira Code">cat</text>
+          <text x="539" y="143" text-anchor="middle" fill="#34d399" font-size="9" font-family="Fira Code">sat</text>
+          <!-- Annotation -->
+          <text x="600" y="200" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Fira Code">Darker =</text>
+          <text x="600" y="214" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Fira Code">Higher</text>
+          <text x="600" y="228" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Fira Code">Attention</text>
+          <text x="600" y="280" text-anchor="middle" fill="#64748b" font-size="9">"sat" attends</text>
+          <text x="600" y="292" text-anchor="middle" fill="#64748b" font-size="9">most to "sat"</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="cards" style="margin-top:24px">
+      <div class="card" style="--accent:#4af">
+        <div class="card-icon">🏗️</div>
+        <div class="card-title">Major LLM Architectures</div>
+        <div class="card-desc">GPT (decoder-only), BERT (encoder-only), T5 (encoder-decoder), Mixture of Experts (MoE), State Space Models (Mamba).</div>
+        <div class="card-tags"><span class="tag">GPT</span><span class="tag">BERT</span><span class="tag purple">MoE</span><span class="tag green">Mamba</span></div>
+        <button class="expand-btn" onclick="toggleCard(this)">Architecture Comparison</button>
+        <div class="card-detail">
+          <h4>Decoder-Only (GPT style)</h4>
+          <p>Autoregressive. Each token attends to all previous tokens. Used for: text generation, code, chat. Examples: GPT-4, LLaMA, Claude, Mistral.</p>
+          <h4>Encoder-Only (BERT style)</h4>
+          <p>Bidirectional attention. Sees full context. Used for: classification, NER, embeddings. Examples: BERT, RoBERTa, DeBERTa.</p>
+          <h4>Mixture of Experts (MoE)</h4>
+          <p>Multiple "expert" feed-forward networks, router picks which ones activate per token. Sparse activation = more parameters, same compute. Examples: Mixtral 8x7B, GPT-4 (rumored).</p>
+          <h4>State Space Models (Mamba)</h4>
+          <p>Alternative to Transformers. Linear complexity in sequence length vs quadratic for attention. Promising for very long sequences.</p>
+        </div>
+      </div>
+      <div class="card" style="--accent:#a78bfa">
+        <div class="card-icon">📏</div>
+        <div class="card-title">Scaling Laws</div>
+        <div class="card-desc">Performance scales predictably with compute, data, and parameters. Chinchilla law: optimal training is ~20 tokens per parameter. Guides all LLM training decisions.</div>
+        <div class="card-tags"><span class="tag purple">Chinchilla</span><span class="tag purple">Scaling</span><span class="tag">Research</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="training-tab" class="tab-panel">
+    <div class="cards">
+      <div class="card" style="--accent:#f472b6">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">RLHF (Reinforcement Learning from Human Feedback)</div>
+        <div class="card-desc">How ChatGPT and Claude were aligned. Pre-train → SFT → Reward Model → PPO. Human raters teach the model what "good" output looks like.</div>
+        <div class="card-tags"><span class="tag pink">Alignment</span><span class="tag pink">InstructGPT</span><span class="tag">PPO</span></div>
+        <button class="expand-btn" onclick="toggleCard(this)">RLHF Pipeline</button>
+        <div class="card-detail">
+          <h4>3-Stage RLHF Process</h4>
+          <p><strong>1. Supervised Fine-Tuning (SFT):</strong> Fine-tune pretrained LLM on high-quality human-written examples to follow instructions.</p>
+          <p style="margin-top:8px"><strong>2. Reward Model Training:</strong> Humans rank model outputs. Train classifier to predict which output humans prefer. This is the reward signal.</p>
+          <p style="margin-top:8px"><strong>3. PPO/REINFORCE:</strong> Use RL to optimize the LLM policy to maximize reward model score, while penalizing deviation from SFT model (KL constraint).</p>
+          <h4>Modern Alternatives</h4>
+          <p><strong>DPO (Direct Preference Optimization):</strong> Directly optimize on preference pairs without RL loop. Simpler and more stable. Used in many open models. <strong>ORPO, SimPO:</strong> Further simplified variants.</p>
+        </div>
+      </div>
+      <div class="card" style="--accent:#34d399">
+        <div class="card-icon">⚡</div>
+        <div class="card-title">Flash Attention & Efficient Attention</div>
+        <div class="card-desc">IO-aware attention algorithm. 3-20x faster, 10x less memory. Enables training on much longer sequences. Now standard in every major model.</div>
+        <div class="card-tags"><span class="tag green">Essential</span><span class="tag green">Speed</span><span class="tag">Memory</span></div>
+      </div>
+      <div class="card" style="--accent:#fb923c">
+        <div class="card-icon">🔢</div>
+        <div class="card-title">Mixed Precision Training</div>
+        <div class="card-desc">Train with FP16/BF16 for speed, maintain FP32 master weights for precision. 2x memory savings, 2-3x throughput. Essential for large models.</div>
+        <div class="card-tags"><span class="tag orange">BF16</span><span class="tag orange">FP16</span><span class="tag">AMP</span></div>
+      </div>
+      <div class="card" style="--accent:#4af">
+        <div class="card-icon">💾</div>
+        <div class="card-title">Gradient Checkpointing & ZeRO</div>
+        <div class="card-desc">Memory optimization techniques. Gradient checkpointing recomputes activations instead of storing them. ZeRO (DeepSpeed) shards optimizer states across GPUs.</div>
+        <div class="card-tags"><span class="tag">Memory Opt</span><span class="tag">DeepSpeed</span><span class="tag">Scale</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="safety-tab" class="tab-panel">
+    <div class="info-box purple">
+      <h4>🛡️ AI Safety & Responsible AI</h4>
+      <p>Building capable AI isn't enough — it must be safe, fair, interpretable, and beneficial. This field includes technical safety research, alignment, and governance.</p>
+    </div>
+    <div class="cards" style="margin-top:24px">
+      <div class="card" style="--accent:#a78bfa">
+        <div class="card-icon">🔍</div>
+        <div class="card-title">Interpretability / XAI</div>
+        <div class="card-desc">Understanding why models make predictions. LIME, SHAP for feature importance. Mechanistic interpretability (Anthropic) — circuit-level analysis of LLMs.</div>
+        <div class="card-tags"><span class="tag purple">SHAP</span><span class="tag purple">LIME</span><span class="tag">Circuits</span></div>
+      </div>
+      <div class="card" style="--accent:#34d399">
+        <div class="card-icon">⚖️</div>
+        <div class="card-title">Fairness & Bias</div>
+        <div class="card-desc">AI systems can perpetuate and amplify biases. Tools like Fairlearn, AIF360 measure and mitigate bias in ML models across demographic groups.</div>
+        <div class="card-tags"><span class="tag green">Fairlearn</span><span class="tag green">AIF360</span><span class="tag">Equity</span></div>
+      </div>
+      <div class="card" style="--accent:#fb923c">
+        <div class="card-icon">🔒</div>
+        <div class="card-title">Red-Teaming & Adversarial AI</div>
+        <div class="card-desc">Test AI systems for vulnerabilities — prompt injection, jailbreaks, adversarial examples, data poisoning. Essential for production AI security.</div>
+        <div class="card-tags"><span class="tag orange">Security</span><span class="tag orange">Testing</span><span class="tag">Robustness</span></div>
+      </div>
+      <div class="card" style="--accent:#4af">
+        <div class="card-icon">🌐</div>
+        <div class="card-title">Constitutional AI (Anthropic)</div>
+        <div class="card-desc">Train models to follow a set of principles using self-critique and revision. Claude was trained using CAI — it critiques its own outputs against constitutional principles.</div>
+        <div class="card-tags"><span class="tag">Anthropic</span><span class="tag">Self-Critique</span><span class="tag green">Alignment</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="multimodal-tab" class="tab-panel">
+    <div class="cards">
+      <div class="card" style="--accent:#4af">
+        <div class="card-icon">👁️</div>
+        <div class="card-title">Vision Transformers (ViT)</div>
+        <div class="card-desc">Apply Transformer architecture to images by splitting into patches. Foundation of GPT-4o, Gemini, Claude's vision capabilities.</div>
+        <div class="card-tags"><span class="tag">Images</span><span class="tag">Patches</span><span class="tag green">Foundation</span></div>
+        <button class="expand-btn" onclick="toggleCard(this)">How ViT Works</button>
+        <div class="card-detail">
+          <h4>ViT Pipeline</h4>
+          <p>1. Split 224×224 image into 16×16 patches (196 patches). 2. Embed each patch as a 768-dim vector. 3. Add positional embeddings. 4. Feed through Transformer encoder. 5. Classification head on [CLS] token.</p>
+          <h4>Popular Vision Models</h4>
+          <p>ViT (Google), CLIP (OpenAI), DINO (Meta), SAM — Segment Anything Model (Meta), Stable Diffusion (vision-language)</p>
+        </div>
+      </div>
+      <div class="card" style="--accent:#f472b6">
+        <div class="card-icon">🎨</div>
+        <div class="card-title">Diffusion Models</div>
+        <div class="card-desc">The tech behind DALL-E, Stable Diffusion, Midjourney. Gradually add noise to images (forward process) then learn to denoise (reverse). Creates photorealistic images from text.</div>
+        <div class="card-tags"><span class="tag pink">Stable Diffusion</span><span class="tag pink">DALL-E</span><span class="tag">Image Gen</span></div>
+      </div>
+      <div class="card" style="--accent:#34d399">
+        <div class="card-icon">🎵</div>
+        <div class="card-title">Audio AI</div>
+        <div class="card-desc">Whisper (OpenAI) for speech recognition, MusicGen for music generation, AudioCraft, voice cloning with Tortoise TTS, real-time voice AI.</div>
+        <div class="card-tags"><span class="tag green">Whisper</span><span class="tag green">MusicGen</span><span class="tag">TTS</span></div>
+      </div>
+      <div class="card" style="--accent:#fb923c">
+        <div class="card-icon">🎬</div>
+        <div class="card-title">Video AI</div>
+        <div class="card-desc">Sora (OpenAI), Runway Gen-3, Meta's Movie Gen. Video understanding models (VideoLLaMA). Next frontier in generative AI.</div>
+        <div class="card-tags"><span class="tag orange">Sora</span><span class="tag orange">Generation</span><span class="tag">Runway</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING ROADMAP -->
+<section id="roadmap">
+  <div class="section-tag">§ 16 · Your Path</div>
+  <h2 class="sec-title">Learning Roadmap</h2>
+  <p class="sec-desc">A structured path from complete beginner to production AI engineer. Stick to the sequence — each skill builds on the previous.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(this,'roadmap-ds')">Data Scientist</button>
+    <button class="tab-btn" onclick="switchTab(this,'roadmap-mle')">ML Engineer</button>
+    <button class="tab-btn" onclick="switchTab(this,'roadmap-genai')">GenAI Developer</button>
+  </div>
+
+  <div id="roadmap-ds" class="tab-panel active">
+    <div style="margin-top:32px" class="roadmap">
+      <div class="road-item">
+        <div class="road-week">Month 1-2</div>
+        <div class="road-title">Python & Mathematics Foundation</div>
+        <p style="font-size:13px;color:var(--text2)">Master Python fundamentals and the math behind ML: linear algebra, calculus, probability, statistics.</p>
+        <div class="road-items">
+          <span class="road-pill">Python basics</span>
+          <span class="road-pill">NumPy</span>
+          <span class="road-pill">Linear Algebra</span>
+          <span class="road-pill">Statistics</span>
+          <span class="road-pill">Probability</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Month 3-4</div>
+        <div class="road-title">Data Wrangling & Visualization</div>
+        <p style="font-size:13px;color:var(--text2)">Load, clean, explore, and visualize data. Learn SQL for querying databases.</p>
+        <div class="road-items">
+          <span class="road-pill">Pandas</span>
+          <span class="road-pill">SQL</span>
+          <span class="road-pill">Matplotlib</span>
+          <span class="road-pill">Seaborn</span>
+          <span class="road-pill">Plotly</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Month 5-6</div>
+        <div class="road-title">Classical Machine Learning</div>
+        <p style="font-size:13px;color:var(--text2)">Learn the core ML algorithms, model evaluation, feature engineering, and pipelines.</p>
+        <div class="road-items">
+          <span class="road-pill">scikit-learn</span>
+          <span class="road-pill">Linear/Logistic Regression</span>
+          <span class="road-pill">Decision Trees</span>
+          <span class="road-pill">Random Forest</span>
+          <span class="road-pill">SVM</span>
+          <span class="road-pill">Cross-validation</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Month 7-9</div>
+        <div class="road-title">Deep Learning Fundamentals</div>
+        <p style="font-size:13px;color:var(--text2)">Neural networks, backpropagation, CNNs for vision, RNNs for sequences. Implement in PyTorch.</p>
+        <div class="road-items">
+          <span class="road-pill">PyTorch</span>
+          <span class="road-pill">Neural Networks</span>
+          <span class="road-pill">CNNs</span>
+          <span class="road-pill">Transfer Learning</span>
+          <span class="road-pill">Regularization</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Month 10-12</div>
+        <div class="road-title">NLP & Transformers</div>
+        <p style="font-size:13px;color:var(--text2)">Text processing, transformers, fine-tuning pretrained models with Hugging Face.</p>
+        <div class="road-items">
+          <span class="road-pill">Transformers</span>
+          <span class="road-pill">Hugging Face</span>
+          <span class="road-pill">Fine-tuning BERT/GPT</span>
+          <span class="road-pill">Tokenization</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Year 2+</div>
+        <div class="road-title">Advanced Topics & Specialization</div>
+        <p style="font-size:13px;color:var(--text2)">Choose your specialty: Computer Vision, NLP, Time Series, Recommendation Systems, or GenAI.</p>
+        <div class="road-items">
+          <span class="road-pill">GenAI / LLMs</span>
+          <span class="road-pill">MLOps</span>
+          <span class="road-pill">Cloud Deployment</span>
+          <span class="road-pill">A/B Testing</span>
+          <span class="road-pill">Power BI / Tableau</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="roadmap-mle" class="tab-panel">
+    <div style="margin-top:32px" class="roadmap">
+      <div class="road-item">
+        <div class="road-week">Month 1-2</div>
+        <div class="road-title">Software Engineering Foundation</div>
+        <div class="road-items">
+          <span class="road-pill">Python (advanced)</span>
+          <span class="road-pill">Git</span>
+          <span class="road-pill">REST APIs</span>
+          <span class="road-pill">Data Structures & Algorithms</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Month 3-5</div>
+        <div class="road-title">ML Engineering Core</div>
+        <div class="road-items">
+          <span class="road-pill">PyTorch</span>
+          <span class="road-pill">scikit-learn</span>
+          <span class="road-pill">Feature Engineering</span>
+          <span class="road-pill">Model Evaluation</span>
+          <span class="road-pill">XGBoost</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Month 6-8</div>
+        <div class="road-title">Infrastructure & DevOps</div>
+        <div class="road-items">
+          <span class="road-pill">Docker</span>
+          <span class="road-pill">Kubernetes</span>
+          <span class="road-pill">FastAPI</span>
+          <span class="road-pill">Cloud (AWS/GCP)</span>
+          <span class="road-pill">CI/CD</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Month 9-12</div>
+        <div class="road-title">MLOps & Production</div>
+        <div class="road-items">
+          <span class="road-pill">MLflow</span>
+          <span class="road-pill">DVC</span>
+          <span class="road-pill">Airflow</span>
+          <span class="road-pill">Model Monitoring</span>
+          <span class="road-pill">Feature Stores</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Year 2+</div>
+        <div class="road-title">Distributed Systems & Scale</div>
+        <div class="road-items">
+          <span class="road-pill">Spark</span>
+          <span class="road-pill">Ray</span>
+          <span class="road-pill">CUDA / GPU</span>
+          <span class="road-pill">Distributed Training</span>
+          <span class="road-pill">System Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="roadmap-genai" class="tab-panel">
+    <div style="margin-top:32px" class="roadmap">
+      <div class="road-item">
+        <div class="road-week">Week 1-4</div>
+        <div class="road-title">LLM API Basics</div>
+        <div class="road-items">
+          <span class="road-pill">Python basics</span>
+          <span class="road-pill">OpenAI / Anthropic API</span>
+          <span class="road-pill">Prompt Engineering</span>
+          <span class="road-pill">System Prompts</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Month 2-3</div>
+        <div class="road-title">LangChain & RAG</div>
+        <div class="road-items">
+          <span class="road-pill">LangChain</span>
+          <span class="road-pill">ChromaDB / Pinecone</span>
+          <span class="road-pill">Document Loaders</span>
+          <span class="road-pill">RAG Pipeline</span>
+          <span class="road-pill">Embeddings</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Month 4-5</div>
+        <div class="road-title">Build & Deploy AI Apps</div>
+        <div class="road-items">
+          <span class="road-pill">Streamlit / FastAPI</span>
+          <span class="road-pill">Docker</span>
+          <span class="road-pill">Cloud Deploy</span>
+          <span class="road-pill">Streaming Responses</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Month 6-9</div>
+        <div class="road-title">Agents & Advanced Topics</div>
+        <div class="road-items">
+          <span class="road-pill">Function Calling</span>
+          <span class="road-pill">LangGraph</span>
+          <span class="road-pill">Fine-tuning / LoRA</span>
+          <span class="road-pill">Ollama (local LLMs)</span>
+          <span class="road-pill">Evals</span>
+        </div>
+      </div>
+      <div class="road-item">
+        <div class="road-week">Year 2+</div>
+        <div class="road-title">Production & Scale</div>
+        <div class="road-items">
+          <span class="road-pill">Multi-agent systems</span>
+          <span class="road-pill">Model serving at scale</span>
+          <span class="road-pill">LLM observability</span>
+          <span class="road-pill">Safety & Evals</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECH STACK SUMMARY -->
+  <div class="highlight-box" style="margin-top:48px">
+    <h3 style="font-size:18px;margin-bottom:24px;color:var(--neon)">🗺️ Technology Map at a Glance</h3>
+    <table class="comp-table">
+      <tr>
+        <th>Layer</th>
+        <th>Beginner</th>
+        <th>Intermediate</th>
+        <th>Advanced</th>
+      </tr>
+      <tr>
+        <td><strong>Language</strong></td>
+        <td>Python, SQL</td>
+        <td>JavaScript, R</td>
+        <td>C++, CUDA, Rust</td>
+      </tr>
+      <tr>
+        <td><strong>ML</strong></td>
+        <td>scikit-learn, Keras</td>
+        <td>PyTorch, XGBoost, HuggingFace</td>
+        <td>JAX, DeepSpeed, custom kernels</td>
+      </tr>
+      <tr>
+        <td><strong>GenAI</strong></td>
+        <td>OpenAI API, LangChain basics</td>
+        <td>RAG, LlamaIndex, Fine-tuning</td>
+        <td>Agents, RLHF, PEFT, custom training</td>
+      </tr>
+      <tr>
+        <td><strong>Data</strong></td>
+        <td>Pandas, NumPy, CSV</td>
+        <td>Spark, dbt, Airflow</td>
+        <td>Ray, Flink, custom pipelines</td>
+      </tr>
+      <tr>
+        <td><strong>Database</strong></td>
+        <td>SQLite, PostgreSQL</td>
+        <td>MongoDB, ChromaDB, Redis</td>
+        <td>Pinecone, Qdrant, distributed DBs</td>
+      </tr>
+      <tr>
+        <td><strong>Deployment</strong></td>
+        <td>Streamlit, Flask</td>
+        <td>FastAPI, Docker, Cloud basics</td>
+        <td>Kubernetes, Triton, custom serving</td>
+      </tr>
+      <tr>
+        <td><strong>MLOps</strong></td>
+        <td>MLflow logging</td>
+        <td>DVC, W&B, CI/CD</td>
+        <td>Kubeflow, Feature Stores, Feast</td>
+      </tr>
+      <tr>
+        <td><strong>Visualization</strong></td>
+        <td>Matplotlib, Seaborn</td>
+        <td>Plotly, Power BI</td>
+        <td>D3.js, Custom dashboards</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:64px;padding-top:32px;border-top:1px solid var(--border);text-align:center">
+    <div style="font-size:11px;color:var(--text3);letter-spacing:2px;font-family:'Space Mono',monospace">
+      AI/ML TECHNOLOGY UNIVERSE · COMPLETE REFERENCE · 2025
+    </div>
+    <div style="margin-top:8px;font-size:13px;color:var(--text3)">
+      The field evolves constantly — keep learning, keep building. 🚀
+    </div>
+  </div>
+</section>
+
+</main>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const scroll = window.scrollY;
+  const total = document.body.scrollHeight - window.innerHeight;
+  document.getElementById('progress').style.width = (scroll/total*100) + '%';
+});
+
+// Active nav highlighting
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('#sidebar a[href^="#"]');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`#sidebar a[href="#${entry.target.id}"]`);
+      if(active) active.classList.add('active');
+    }
+  });
+}, {threshold: 0.2});
+sections.forEach(s => observer.observe(s));
+
+// Expand/collapse cards
+function toggleCard(btn) {
+  const detail = btn.nextElementSibling;
+  detail.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+// Tab switching
+function switchTab(btn, targetId) {
+  const parent = btn.closest('section') || btn.closest('.highlight-box') || document;
+  // Find the tab group
+  const tabGroup = btn.closest('.tabs');
+  tabGroup.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Find all panels in scope
+  const panels = (btn.closest('section') || document).querySelectorAll('.tab-panel');
+  panels.forEach(p => p.classList.remove('active'));
+  const target = document.getElementById(targetId);
+  if(target) target.classList.add('active');
+}
+
+// Search nav
+function filterNav(query) {
+  const links = document.querySelectorAll('#sidebar a');
+  const q = query.toLowerCase();
+  links.forEach(a => {
+    const text = a.textContent.toLowerCase();
+    a.style.display = (q === '' || text.includes(q)) ? 'flex' : 'none';
+  });
+}
+
+// Animate sections on scroll
+const animObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, {threshold: 0.05});
+
+document.querySelectorAll('.card').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = `opacity 0.5s ease ${(i % 6) * 0.07}s, transform 0.5s ease ${(i % 6) * 0.07}s`;
+  animObserver.observe(el);
+});
+</script>
+</body>
+</html>
