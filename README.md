@@ -9,7 +9,7 @@ A clean, visual, and interactive reference hub for the complete AI/ML ecosystem 
 ## Overview
 
 AI_tech_hub is a single‑page, structured guide designed to help learners, developers, and professionals understand the full landscape of modern AI/ML technologies.  
-It organizes the ecosystem into clear categories, making it easy to explore tools, frameworks, workflows, and concepts across the entire pipeline.
+It organizes the ecosystem into clear categories, making it easy to explore tools, frameworks, workflows, and concepts across the entire pipeline. This page was created with the help of Claude, using a comprehensive prompt that provided all the content ideas.
 
 
 
